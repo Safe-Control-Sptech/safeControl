@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h2><b>Cálculadora de Desperdício</b></h2>
+
+    <b>Digite as informações e descubra o prejuízo do seu lucro </b><br><br>
+
+    Categoria de carne <br>
+    <input id="categoria" type="text"><br><br>
+
+    Quantidade de quilo de carne que você compra por dia: <br>
+    <input id="quilo" type="text"><br><br>
+
+    Qual o preço da carne <br>
+    <input id="preco" type="text"><br><br>
+
+    <button onclick="mostrar()">Calcular</button>
+
+    <div id="msg"></div>
+
+</body>
+</html>
+<script>
+    function mostrar(){
+        let kg = Number(quilo.value);
+        let valor = Number(preco.value);
+
+        let total_valor = kg * valor;
+        let prejuizo = total_valor * 0.02;
+
+        msg.innerHTML = `O prejuízo em reais será de: ${prejuizo.toFixed(2)}`
+
+        categoria.value='';
+        quilo.value = '';
+        preco.value = '';
+    }
+</script>
