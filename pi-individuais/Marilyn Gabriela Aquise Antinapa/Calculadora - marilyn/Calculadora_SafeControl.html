@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora - SafeControl</title>
+</head>
+
+<body>
+
+    <h2>Simulador de Prejuízo (Estoque Comprado)</h2>
+
+    Quantidade de Carne Comprada (Kg):
+    <input id="ipt_qtd_comprada"> <br>
+
+    Preço de Custo (R$ por Kg):
+    <input id="ipt_custo_kg"> <br>
+
+    Preço de Venda (R$ por Kg):
+    <input id="ipt_venda_kg"> <br>
+
+    <button onclick="CalcularPrejuizo()">Analisar Perca</button>
+
+    <div id="div_resultado"></div>
+
+    <script>
+        let taxa_perda_estimada = 0.02;
+
+        function CalcularPrejuizo() {
+
+            let quantidade = Number(ipt_qtd_comprada.value);
+            let custo = Number(ipt_custo_kg.value);
+            let venda = Number(ipt_venda_kg.value);
+
+
+            let kg_perdidos = quantidade * taxa_perda_estimada;
+            let prejuizo_custo = kg_perdidos * custo;
+            let perda_faturamento = kg_perdidos * venda;
+
+            let mensagem_alerta = "";
+            if (prejuizo_custo > 500) {
+                mensagem_alerta = "ALERTA: O prejuízo está muito alto! Instale o sensor urgente.";
+            } else {
+                mensagem_alerta = "Atenção: Mesmo perdas pequenas acumulam no final do ano.";
+            }
+
+            div_resultado.innerHTML = `
+                <br>
+                RELATÓRIO DE PERDA <br><br>
+                Total de carne perdida: ${kg_perdidos} Kg <br>
+                Dinheiro jogado fora (Custo): R$ ${prejuizo_custo} <br>
+                O que deixou de faturar: R$ ${perda_faturamento} <br>
+                <br>
+                <b>${mensagem_alerta}</b>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
