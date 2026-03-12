@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 1</title>
+</head>
+<body>
+    <h2>Calculadora de prejuizo</h2>
+
+    Categoria da Carne:
+    <input id="ipt_categoria" type="text">
+
+    Preço médio da carne:
+    <input id="ipt_preco" type="text">
+
+
+    Quantidade total de Kg vendidos ao mês:
+    <input id="ipt_quantidadekg" type="text"><br><br>
+
+    <button onclick="mostrar_valor_vendido()">Calcular</button>
+
+    <div id="msg"></div>
+
+</body>
+</html>
+    <script>
+        function mostrar_valor_vendido(){
+            let categoria = ipt_categoria.value
+            let preco = Number(ipt_preco.value)
+            let kg = Number(ipt_quantidadekg.value)
+            
+            let valorvendido = 0
+            valorvendido = preco * kg
+
+            let valorprejuizo = 0
+            valorprejuizo = valorvendido * 0.02
+
+            let valorfinal = 0
+            valorfinal =  valorvendido-valorprejuizo 
+
+            msg.innerHTML += `Sem a implementação do nosso sistema a taxa de desperdício se torna 2%, resultando em um prejuizo equivalente a perda de R$${valorprejuizo}<br>`
+
+            msg.innerHTML += `O valor final sem a implementação do sistema ilustra um total de R$${valorfinal}<br>`
+
+            msg.innerHTML += `Após a implementação de nosso sistema, a venda de ${categoria} retornará o lucro de R$${valorvendido}<br>`
+
+        }
+
+
+    </script>
