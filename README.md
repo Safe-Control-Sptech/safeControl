@@ -1,66 +1,38 @@
-# safeControl - Frigorífico
+# SafeControl - Soluções em Climatização Inteligente
 
-Este projeto consiste em um sistema de gerenciamento de umidade e temperatura para frigoríficos, desenvolvido pela Safecontrol, empresa formada por estudantes do curso de **Sistemas de Informação (Sis)**. O objetivo é observar, gerenciar e climatizar de forma correta as camâras frigoríficas.
+Bem-vindo ao repositório oficial da **SafeControl**. Somos uma empresa de tecnologia formada por estudantes do curso de **Sistemas de Informação (Sis)** da São Paulo Tech School.
 
-## Funcionalidades
+Nossa missão é desenvolver soluções inovadoras para o monitoramento, gerenciamento e controle de ambientes críticos.
 
-*   **Controle de Temperatura:** Monitoramento dos níveis de refrigeração das câmaras frias.
-*   **Controle de Umidade:** Monitoramento dos níveis de umidade relativa do ar das câmaras frias.
-*   **Cadastro de Fornecedores/Clientes:** Gerenciamento de parceiros comerciais.
-*   **Relatórios:** Dashboards e relatórios para melhor gestão e tomada de decisões efetivas.
+---
 
-## Tecnologias
+## ❄️ Nossa Solução Principal: boi-vigilante
+O sistema **boi-vigilante** foi projetado para revolucionar a gestão de câmaras frigoríficas. Ele monitora de forma inteligente os níveis de temperatura e umidade relativa, garantindo a integridade dos produtos armazenados.
 
-*   **Linguagem:** C++, HTML, CSS, JS
+---
+
+## 🛠️ Stacks Tecnológicas
+Nosso time utiliza tecnologias modernas para garantir performance e segurança:
+
+*   **Linguagens:** C++, HTML, CSS, JS
 *   **Banco de Dados:** MySQL
-*   **Frameworks:** Ainda nenhum
+*   **Ambiente:** Projetos IoT e Aplicações Web
 
-## Pré-requisitos
+---
 
-Antes de começar, você precisará ter instalado em sua máquina:
-*   [Git](https://git-scm.com)
+## 👥 Nosso Time
+A SafeControl é composta por um grupo dedicado de estudantes:
 
-<!--## Instalação e Execução
+*   Eryka Lima da Silva
+*   José Daniel Alicrim Braga
+*   Marilyn Gabriela Aquise Antinapa
+*   Melissa Freitas Ribeiro
+*   Mickael Cassiane Rodrigues
+*   Raíssa Maria do Nascimento
+*   Sophia Vieira Menezes
+*   Yuri Garcia Pardinho
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone https://github.com/Safe-Control-Sptech/safeControl
-    ```
-
-2.  **Acesse a pasta do projeto:**
-    ```bash
-    cd safeControl
-    ```
-
-3.  **Instale as dependências:**
-    ```bash
-    # Caso seja Node.js:
-    npm install
-
-    # Caso seja Python:
-    pip install -r requirements.txt
-    ```
-
-4.  **Execute a aplicação:**
-    ```bash
-    # Caso seja Node.js:
-    npm start
-
-    # Caso seja Python:
-    python main.py
-    ```-->!
-
-## 👥 Integrantes do Grupo
-
-*   Eryka Lima da Silva.
-*   José Daniel Alicrim Braga.
-*   Marilyn Gabriela Aquise Antinapa.
-*   Melissa Freitas Ribeiro.
-*   Mickaela Cassiane Rodrigues.
-*   Raíssa Maria do Nascimento.
-*   Sophia Vieira Menezes.
-*   Yuri Garcia Pardinho.
+---
 
 ## 📄 Licença
-
-Este projeto está sob a licença **[MIT/Acadêmica]** - consulte o arquivo `LICENSE` para detalhes.
+Este projeto está licenciado sob a licença **[MIT/Acadêmica]** - consulte o arquivo `LICENSE` para detalhes.
