@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI GRUPO 2</title>
+</head>
+
+<body>
+    <h2>CALCULO DE TAXAS</h2>
+
+    Qual tipo de carne você vende? <input id="ipt_carne"><br>
+    Qual o preço da carne? <input id="ipt_preco"><br>
+    Quantos Kg você vende (mês)? <input id="ipt_quantidade"> <br><br>
+
+    <button onclick="depositar()">CALCULAR TAXA DE DESPERDÍCIO</button><br><br>
+
+    <b>Calculando a tava de desperdicio</b> <br>
+    <div id="div_msg"></div
+    
+</body>
+
+</html>
+<script>
+
+    function depositar() {
+            let tipo = Number(ipt_preco.value);
+            let kg = Number(ipt_quantidade.value);
+            let def = (2);
+            let total = tipo * kg;
+            let resultado = ((total * 2)/100);
+
+
+            div_msg.innerHTML = `VOCÊ VENDE ${ipt_carne.value}. E DELA, A TAXA DE DESPERDICIO É DE  2% ONDE, ESSE VALOR EQUIVALE A R$ ${resultado} DE PREJUÍZO FINANCEIRO.`
+            ipt_preco.value = '';
+            ipt_carne.value = '';
+            ipt_quantidade.value = '';
+        }
+
+
+</script>
