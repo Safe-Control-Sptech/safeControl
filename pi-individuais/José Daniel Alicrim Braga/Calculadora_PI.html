@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Prejuizo</title>
+</head>
+<body>
+     <h2>CALCULO DE TAXAS</h2>
+
+    Qual tipo de carne você vende? <input id="tipo"><br>
+    Qual o preço da carne? <input id="preco"><br>
+    Quantos Kg você vende por dia? <input id="quantidade"> <br><br>
+
+    <button onclick="deposito()">CALCULAR TAXA DE DESPERDÍCIO/PREJUIZO</button><br><br>
+
+    <div id="div_msg"></div>
+</body>
+<script>
+    function deposito() {
+            let precoCarne = Number(preco.value);
+            let qtdKg = Number(quantidade.value);
+            let total = precoCarne * qtdKg;
+            let prejuizo = total * 0.02;
+
+            div_msg.innerHTML = `A quantidade em reais do prejuizo e de R$${prejuizo}`;
+           
+        }
+
+</script>
+</html>
