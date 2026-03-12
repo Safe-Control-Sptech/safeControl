@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desperdício</title>
+</head>
+<body>
+    <h2>Cálculo de Desperdício</h2>
+
+    <p>Digite abaixo as informações solicitadas e descubra quanto de lucro você está perdendo na sua empresa.</p>
+    <p><b>Informe a categoria da carne, por exemplo:</b> <i>Pescados, carne bovina, carne suína, aves e congelados.</i></p>
+    <br>
+
+    Qual carne você vende?  <input type="text" id="ipt_tipoCarne">
+    <br><br>
+    Informe o preço dessa carne por Kg:  <input type="text" id="ipt_precoCarne">
+    <br><br>
+    Informe a quantidade que você compra em média por KG (no mês):  <input type="text" id="ipt_kgCarne">
+    <br><br>
+    <button onclick="calcularDesperdício()">Calcular Taxa de Desperdício</button>
+    <br><br>
+    Incluir mais tipos de carne?  <button onclick="incluirCategoria()">Sim</button>  <button onclick="encerrarCalculo()">Não</button> 
+    <br><br>
+    <div id="msgDesperdicioCliente"></div>
+    
+</body>
+</html>
+<script>
+    let acumulado = 0;
+
+    function incluirCategoria() {
+        ipt_tipoCarne.value = '';
+        ipt_precoCarne.value = '';
+        ipt_kgCarne.value = '';
+    }
+
+    function encerrarCalculo() {
+        msgDesperdicioCliente.innerHTML = `<b>Esse cálculo foi, em média, o quanto você perde por ano por não aderir aos nossos serviços.<b><br>`;
+        
+        if (acumulado < 50000) {
+            msgDesperdicioCliente.innerHTML = `R$ ${acumulado.toFixed(2)}. Você está perdendo muito dinheiro!`;  
+        } 
+
+        if (acumulado < 100000) {
+            msgDesperdicioCliente.innerHTML += `Com R$ ${acumulado.toFixed(2)}, você poderia investir mais no seu negócio. Pense bem...`;       
+        }
+
+        if (acumulado > 100000) {
+            msgDesperdicioCliente.innerHTML += `Uma perda total de R$ ${acumulado.toFixed(2)}. O que está esperando para fechar contrato conosco? Podemos te ajudar!`;
+        }
+    }
+
+    function calcularDesperdício() {
+        let tipoCarne = ipt_tipoCarne.value;
+        let precoCarne = Number(ipt_precoCarne.value);
+        let kgComprados = Number(ipt_kgCarne.value);
+        let totalComprado = precoCarne * kgComprados;
+        let desperdicio = totalComprado - (totalComprado * 98/100);
+        desperdicioAnual = desperdicio * 12;
+        acumulado = acumulado + desperdicioAnual;
+
+        msgDesperdicioCliente.innerHTML += `Você compra R$ ${totalComprado.toFixed(2)} de carnes do tipo ${tipoCarne}, mas tem um desperdício de 2% em cima disso, que equivale a R$ ${desperdicio.toFixed(2)} de prejuízo financeiro por mês...<br>Por ano, você possui uma perda total de R$ ${acumulado.toFixed(2)}.<br>`;
+    }
+
+</script>
