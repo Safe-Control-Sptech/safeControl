@@ -6,8 +6,8 @@ Nossa missão é desenvolver soluções inovadoras para o monitoramento, gerenci
 
 ---
 
-## ❄️ Nossa Solução Principal: SafeControl
-O sistema **SafeControl** foi projetado para revolucionar a gestão de câmaras frigoríficas. Ele monitora de forma inteligente os níveis de temperatura e umidade relativa, garantindo a integridade dos produtos armazenados.
+## ❄️ Nossa Solução Principal: Safe Meat
+O sistema **Safe Meat** foi projetado para revolucionar a gestão de câmaras frigoríficas. Ele monitora de forma inteligente os níveis de temperatura e umidade relativa, garantindo a integridade dos produtos armazenados.
 
 ---
 

@@ -1,4 +1,4 @@
-# safeControl - Frigorífico
+# safeControl - safeMeat
 
 Este projeto consiste em um sistema de gerenciamento de umidade e temperatura para frigoríficos, desenvolvido pela Safecontrol, empresa formada por estudantes do curso de **Sistemas de Informação (Sis)**. O objetivo é observar, gerenciar e climatizar de forma correta as camâras frigoríficas.
 
