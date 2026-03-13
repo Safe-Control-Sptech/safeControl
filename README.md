@@ -6,8 +6,8 @@ Nossa missão é desenvolver soluções inovadoras para o monitoramento, gerenci
 
 ---
 
-## ❄️ Nossa Solução Principal: boi-vigilante
-O sistema **boi-vigilante** foi projetado para revolucionar a gestão de câmaras frigoríficas. Ele monitora de forma inteligente os níveis de temperatura e umidade relativa, garantindo a integridade dos produtos armazenados.
+## ❄️ Nossa Solução Principal: SafeControl
+O sistema **SafeControl** foi projetado para revolucionar a gestão de câmaras frigoríficas. Ele monitora de forma inteligente os níveis de temperatura e umidade relativa, garantindo a integridade dos produtos armazenados.
 
 ---
 
