@@ -31,8 +31,48 @@ A SafeControl é composta por um grupo dedicado de estudantes:
 *   Raíssa Maria do Nascimento
 *   Sophia Vieira Menezes
 *   Yuri Garcia Pardinho
+*   Arthur Francisco Balduino
+*   Bruna Martins Marcelino
+*   Gabryel Silva Moura
+*   Leonardo Marquese Galfaro
+*   Luiz Joaquim Sobrinho Neto
+*   Marcela Nabarreti Fachim
+*   Pedro Henrique dos Santos
 
 ---
+
+## 🛠️ Regras do projeto
+
+- Regras de reunião 
+
+    Reuniões ocorreram as quintas, sendo presenciais ou remotas.
+    Reuniões remotas deveram se unica e exlusivamente para alinhamento de prazos.
+    Reuniões presencias deveram ocorrer de forma a tratar planejamentos e execuções.
+
+- Compromissos com  a evolução do projeto 
+
+    Cada integrante é responsável pela parte designada e pela qualidade da entrega.
+    Caso não ocorra a entrega da tarefa, será notificado em ata.
+    Atrasos sem justificativas válidas seram notifacados em atas
+    (Justificativas validas: Morte, doença, compromissos avisados previamente).
+    O integrante que faltar sem aviso prévio, ficará responsável por redigir a próxima Ata.
+    
+
+- Comunicação 
+
+    Todos devem contribuir efetivamente.
+    Tirar todas as dúvidas sobre o trabalho com os demais integrantes do grupo.
+    Feedbacks são sempre bem vindos.
+    Praticar audição ativa.
+    Respeitar ideias e opniões de todos os integrantes.
+
+- Organização
+
+    Tudo deve ser registrado em ata.
+    Decisões importantes devem ser tomadas em grupo e democráticamente.
+    Sempre dar um git pull antes de fazer qualquer alteração.
+    Criar commits claros a respeito do que foi feito.
+    Notificar pelo grupo do whatsapp toda vez que subir uma modificação.
 
 ## 📄 Licença
 Este projeto está licenciado sob a licença **[MIT/Acadêmica]** - consulte o arquivo `LICENSE` para detalhes.
