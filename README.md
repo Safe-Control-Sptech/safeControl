@@ -45,16 +45,16 @@ A SafeControl é composta por um grupo dedicado de estudantes:
 
 - Regras de reunião 
 
-    Reuniões ocorreram as quintas, sendo presenciais ou remotas.
-    Reuniões remotas deveram se unica e exlusivamente para alinhamento de prazos.
-    Reuniões presencias deveram ocorrer de forma a tratar planejamentos e execuções.
+    Reuniões ocorrerão às quintas, sendo presenciais ou remotas.
+    Reuniões remotas devem ser feitas única e exclusivamente para alinhamento de prazos.
+    Reuniões presenciais deverão ocorrer de forma a tratar planejamentos e execuções.
 
 - Compromissos com  a evolução do projeto 
 
     Cada integrante é responsável pela parte designada e pela qualidade da entrega.
     Caso não ocorra a entrega da tarefa, será notificado em ata.
-    Atrasos sem justificativas válidas seram notifacados em atas
-    (Justificativas validas: Morte, doença, compromissos avisados previamente).
+    Atrasos sem justificativas válidas serão notificados em atas
+    (Justificativas válidas: Morte, doença, compromissos avisados previamente).
     O integrante que faltar sem aviso prévio, ficará responsável por redigir a próxima Ata.
     
 
@@ -64,12 +64,12 @@ A SafeControl é composta por um grupo dedicado de estudantes:
     Tirar todas as dúvidas sobre o trabalho com os demais integrantes do grupo.
     Feedbacks são sempre bem vindos.
     Praticar audição ativa.
-    Respeitar ideias e opniões de todos os integrantes.
+    Respeitar ideias e opiniões de todos os integrantes.
 
 - Organização
 
     Tudo deve ser registrado em ata.
-    Decisões importantes devem ser tomadas em grupo e democráticamente.
+    Decisões importantes devem ser tomadas em grupo e democraticamente.
     Sempre dar um git pull antes de fazer qualquer alteração.
     Criar commits claros a respeito do que foi feito.
     Notificar pelo grupo do whatsapp toda vez que subir uma modificação.
