@@ -1,3 +1,6 @@
+    email = []
+    senha = []
+    
     function entrar() {
         let login = ipt_login.value;
         let senha = ipt_senha.value;
@@ -6,5 +9,27 @@
             alert ('email/senha está(ão) incorreto(os)');
         } else {
             alert ('Você será redirecionado. AGUARDE!');
+            window.location.replace("https://www.google.com")
         }
+    }
+
+
+    function Criar() {
+        let emailcad = ipt_email.value;
+        let senha = ipt_senha.value;
+        let senha_rep = ipt_senha_rep.value;
+
+        if ((emailcad.indexOf('@gmail')  == -1 || emailcad.indexOf('@uol')  == -1 || emailcad.indexOf('@outlook')  == -1) &&
+                                                                        emailcad.indexOf('.com', '.org', '.com.br', '.net') == -1) {
+            alert ('digite um E-mail válido');
+        } if (senha.length < 7) {
+            alert ('A senha deve conter no minimo 7 digitos');
+        } if (senha_rep != senha) {
+            alert ('As senhas não conhecidem');
+        } else {
+            email.push(email.cad);
+            senha.push(senha);
+            window.location.href = "TELA_login_versaobase.html"
+        }
+
     }
