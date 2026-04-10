@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title> 
+    <title>Document</title>
 </head>
+
+<style>
+    .tam {
+
+        height: 800px;
+        width: 100%;
+        background-color: red;
+    }
+</style>
+
 <body>
-    
+
     <div class="barra_cima ">
         <div class="localogo">
-            <img class="logo-container-img logo-container logo" src="Logo_SafeControl_Horizontal.png" alt="Logo">
+            <img class="logo-container-img logo-container logo" src="Logo_SafeControl_Horizontal.png" alt="Logo"
+                onclick="home()">
 
             <div class="container">
                 <button class="btn-redondo" onclick="acessar()">ACESSO CLIENTE</button>
@@ -27,11 +39,89 @@
             <div class="container5">
                 <button class="btn-texto" onclick="quem_somos()">QUEM SOMOS</button>
             </div>
-        </div>  
+        </div>
     </div>
-    
-    
+    <div>
+        <div>
+            <div>
+                <span style="font-size: 25px;"><b>Monitore o frescor, proteja seu lucro.</b></span><br>
+                <span>Evite perdas de até 3% por encolhimento e preserve o brilho vermelho da carne com monitoramento de
+                    temperatura e umidade em tempo real. Preserve a qualidade do produto e garanta conformidade em toda
+                    a operação logistica.</span><br><br>
+                <div><button class="btn-redondo" onclick="contato()">ENTRE EM CONTATO</button></div> <br><br><br>
+            </div>
+
+        </div>
+
+    </div>
+    <div>
+
+
+        <div>
+            <div>
+                <span>Quem Somos</span><br><br>
+                <span style="font-size: 25px;"><b>Dados confiáveis para operações mais seguras e
+                        eficientes.</b></span><br>
+                <span>Somos uma empresa focada em agricultura de precisão.</span><br><br>
+                <span style="font-size: 11px;">Desenvolvemos soluções IoT que garantem controle total da temperatura e
+                    umidade ajudando empresas a preservar qualidade, reduzir perdas e otimizar processos.</span><br><br>
+
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                <div style="font-size: 30px;"> <b>Monitoramento em tempo real</b></div>
+                <div style="font-size: 30px;"> <b>Mais controle, menos perdas no transporte</b></div>
+                <div style="font-size: 30px;"> <b>Preservação da qualidade do produto</b></div>
+            </div><br><br>
+
+
+
+        </div>
+        <div>
+            <div style="font-size: 11px;">Nossa Solução </div>
+            <div style="font-size: 30px;"><b>Monitoramento inteligente no transporte de carnes</b></div>
+            <div style="font-size: 13px;">Nossos sensores IoT acompanham em tempo real as condições de temperatura e
+                umidade durante o transporte. Os dados são enviados para uma dashboard com alertas e analises,
+                permiitindo agir rapidamente para evitar perdas, manter o padrão de qualidade e garantir a integridade
+                da carga.</div><br><br>
+            <button class="btn-redondo" onclick="contato()">ENTRE EM CONTATO</button><br><br><br>
+
+        </div>
+
+        <div>
+            <!-- Acho que isso aqui em baixo nao e o nosso tema, mas vou copiar igual o figma e depois mudaremos de acordo com a calculadora oficial @luiz e @gabryel-->
+            <div>
+                <div style="font-size: 10px;">Nossa calculadora</div>
+                <div style="font-size: 30px;"><b>Simulador financeiro da lavoura</b></div>
+                <div style="font-size: 14px;">Descubra o impacto financeiro das suas decisões de colheita. Nosso
+                    simulador utiliza dados da lavoura para estimar o lucro, prejuízo e retorno sobre investimento(ROI),
+                    mostrando quanto você pode ganhar ao colher no momento ideal e evitar perdas.</div> <br><br>
+
+            </div>
+            <div> Quantidade de hectares: <br><input type="number" id="ipt_hectares"> <br><br>
+                Quantidade de plantas por hectare: <br><input type="number" id="ipt_plantas_por_hectare"><br><br>
+                Colheita está a quantos dias atrasada? <br><input type="number" id="ipt_dias_atraso"><br><br>
+                <button class="btn-redondo" onclick="calcular()">CALCULAR</button><br><br>
+
+
+            </div>
+
+        </div>
+
+        <div>
+            <div style="font-size: 30px;"><b>Entre em Contato</b></div>
+            <div style="font-size: 9px;">Contatos: (11) 99999-9999 <br> e-mail: contato@safacontrol.com.br </div><br><br>
+            <img class="logo-container-img logo-container logo" src="Logo_SafeControl_Vertical.png" alt="Logo">
+            <div style="font-size: 9px;">Nossas Redes Sociais: GIT IG FB </div>
+
+        </div>
+
+
 
 
 </body>
+
 </html>

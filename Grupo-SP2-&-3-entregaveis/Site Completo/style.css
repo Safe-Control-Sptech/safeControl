@@ -2,10 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;          
+	width: 100%;       
 	background-color: aliceblue;
 	background-image: url('canal\ do\ boi.jpeg');
 	background-repeat: no-repeat;
@@ -94,10 +91,17 @@ button{
     top: 20px;          /* Distância do topo */
     left: 80px;         /* Distância da esquerda */
     z-index: 1000;      /* Garante que a logo fique acima de outros elementos */
+	cursor: pointer;   /* Adiciona a "mãozinha" ao passar o mouse */ /* Suaviza a transição do efeito */
+	transition: ease-in-out 0.3s;
 }
 
-.logo-container-img {
-    width: 250px;       /* Ajuste o tamanho conforme sua necessidade */
+.btn-redondo:hover {
+    background-color: #ED145B; /* Muda para o rosa do seu projeto */
+    transform: scale(1.05);    /* Dá um leve aumento */
+}
+
+.logo-container:hover {
+	transform: scale(1.1);     /* Ajuste o tamanho conforme sua necessidade */
     height: auto;
 }
 
@@ -126,6 +130,8 @@ button{
     background-color: #ED145B; /* Muda para o rosa do seu projeto */
     transform: scale(1.05);    /* Dá um leve aumento */
 }
+
+
 .btn-texto {
     background: none;        /* Remove a cor de fundo */
     border: none;            /* Remove a borda */
