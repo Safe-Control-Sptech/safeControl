@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeControl | Dashboards</title>
+
+    <link rel="stylesheet" href="./CSS Dash/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="./Site.html">
+                <img class="img_logo" src="./logo/Logo_SafeControl_Horizontal.png" alt="Logo da SafeControl">
+            </a>
+        </div>
+    </div>
+    
+    <div class="menu-fixo">
+        <nav>
+            <a href="#">Visão Geral</a>
+            <a href="#">Sensores</a>
+            <a href="#">Calculadora</a>
+            <a href="#">Pefil</a>
+            <b href="#">Sair</b>
+        </nav>
+    </div>
+
+    <div class="container div_texto">
+        <h1>Visão Geral</h1>
+        <p>Bem-vindo ao painel de gerenciamento.</p>
+    </div>
+
+    <div class="container div_body">
+
+        <div class="kpi-card">
+            <div class="kpi-info">
+                <span class="kpi-title">Alertas Críticos</span>
+                <h2 class="kpi-value">2</h2>
+                <span class="kpi-change negativo">+200%</span>
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-info">
+                <span class="kpi-title">Maior Temperatura Registrada</span>
+                <h2 class="kpi-value">4°C</h2>
+                <span class="kpi-change negativo">+12%</span>
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-info">
+                <span class="kpi-title">Maior Umidade Registrada</span>
+                <h2 class="kpi-value">60%</h2>
+                <span class="kpi-change negativo">-20%</span>
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-info">
+                <span class="kpi-title">Sensores Totais</span>
+                <h2 class="kpi-value">4</h2>
+                <span class="kpi-change positivo">2 Ativos</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="select-container">
+        <select name="sensores" id="select_sensor">
+            <option value="0">Sensor 1 - Gráfico Temperatura</option>
+            <option value="1">Sensor 1 - Gráfico Umidade</option>
+        </select>
+    </div>
+
+    <div class="container" id="temperatura">
+        <div class="grafico">
+            <canvas id="meuGrafico"></canvas>
+        </div>
+
+    </div>
+
+    <div class="container div_chart" id="umidade">
+
+        <div class="grafico_linha">
+            <canvas id="meuGrafico2"></canvas>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    const temperatura = document.getElementById("temperatura");
+    const umidade = document.getElementById("umidade");
+
+    umidade.style.display = "none";
+
+    document.getElementById("select_sensor").addEventListener("change", function () {
+        const valor = this.value;
+
+        if (valor === "0") {
+            temperatura.style.display = "flex";
+            umidade.style.display = "none";
+        }
+
+        if (valor === "1") {
+            umidade.style.display = "flex";
+            temperatura.style.display = "none";
+        }
+    });
+
+    const ctx = document.getElementById('meuGrafico');
+    const ctx2 = document.getElementById('meuGrafico2');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12/04', '13/04', '14/04', '15/04', '16/04', '17/04','18/04', '19/04', '20/04', '21/04'],
+            datasets: [{
+                label: '  Temperatura Média',
+                data: [4, -2, -1, -2, -4, 0,-2,-1,0,-2],
+                borderColor: '#4facfe',
+                backgroundColor: 'rgba(79, 172, 254, 0.15)',
+                borderWidth: 3,
+                pointBackgroundColor: '#4facfe',
+                pointBorderWidth: 4,
+                pointBorderColor: '#4facfe'
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+
+        }
+    });
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+            datasets: [{
+                label: 'Vendas',
+                data: [1200, 1900, 3000, 2500, 2200, 3200],
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderRadius: 10,
+                barThickness: 30
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)'
+                    },
+                    ticks: {
+                        stepSize: 1000
+                    }
+                }
+            }
+        }
+    });
+</script>
