@@ -15,12 +15,12 @@
         </div>
 
         <nav>
-            <a href="#">Quem Somos</a>
-            <a href="#">Tecnologia</a>
-            <a href="#">Solução</a>
-            <a href="#">Calculadora</a>
+            <a href="#quem_somos" onclick="scrollTosection(event)">Quem Somos</a>
+            <a href="#solucao" onclick="scrollTosection(event)">Solução</a>
+            <a href="#tec" onclick="scrollTosection(event)">Tecnologia</a>
+            <a href="#calculadora" onclick="scrollTosection(event)">Calculadora</a>
 
-            <button onclick=""><a href="#">Acesso Cliente</a></button>
+            <button onclick=""><a href="./Tela-cadastro.html">Acesso Cliente</a></button>
         </nav>
     </div>
 
@@ -41,18 +41,18 @@
     <div class="quem-somos">
         <img style="width: 600px;" src="imagens/desenho_Caminhao.PNG" alt="Imagem de um Caminhão">
         
-        <div class="text-Quem_somos">
+        <div id="quem_somos" class="text-Quem_somos">
             <h4 style="color: #1A3868; font-size: 20px;">Quem Somos</h4>
-            <h2 style="font-size: 36px;">Dados confiáveis para operações mais seguras e eficientes.</h2>
-            <h4>Somos uma empresa focada em agricultura de precisão.</h4>
+            <h2 style="font-size: 36px;">Monitoramento inteligente para garantir a qualidade no transporte de alimentos.</h2>
+            <h4>Somos uma empresa especializada em soluções de monitoramento para a cadeia de transporte de carnes.</h4>
 
             <p>
-                Somos uma empresa focada em agricultura de precisão. Desenvolvemos soluções IoT que garantem controle total da temperatura e umidade, ajudando empresas a preservar qualidade, reduzir perdas e otimizar processos logísticos.
+                A Safecontrol Desenvolve soluções IoT que garantem o monitoramento da temperatura e umidade, ajudando empresas a preservar qualidade, reduzir perdas e otimizar processos logísticos.
             </p>
         </div>
     </div>
 
-    <div class="sessao-cards">
+    <div id="solucao" class="sessao-cards">
         <div class="card" id="c1">
             <img style="height: 300px; width: 400px; border-radius: 30px 30px 0px 0px; object-fit:cover" src="imagens/image_Açougue.jpeg" alt="Imagem de um açougue">
 
@@ -78,13 +78,13 @@
         </div>
     </div>
 
-    <div class="monitoramento">
+    <div id="tec" class="monitoramento">
         <div class="text-Monitoramento">
-            <h4 style="color: #1A3868; font-size: 20px;">Nossa solução</h4>
+            <h4 style="color: #1A3868; font-size: 20px;">Tecnologia</h4>
             <h2 style="font-size: 36px; margin: -2px 0px;">Monitoramento inteligente no transporte de carnes</h2>
 
             <p>
-                Nossos sensores IoT acompanham em tempo real as condições de temperatura e umidade durante o transporte. Os dados são enviados para um dashboard com alertas e análises, permitindo agir rapidamente para evitar perdas, manter o padrão de qualidade e garantir a integridade da carga.
+                Nossos sensores IoT acompanham em tempo real as condições de temperatura e umidade durante o transporte. Por seguinte, os dados são enviados para um dashboard com alertas e análises, permitindo agir rapidamente para evitar perdas, manter o padrão de qualidade e garantir a integridade da carga.
             </p>
 
             <button style="padding: 0px 40px; margin-top: 10px;"><a href="#">ENTRE EM CONTATO</a></button>
@@ -93,7 +93,7 @@
         <img style="width: 600px;" src="imagens/desenho_Monitoramento.PNG" alt="Imagem de um celular realizando um monitoriamento">
     </div>
 
-    <div class="calculadora">
+    <div id="calculadora" class="calculadora">
         <div class="text-Calculadora">
             <h4 style="color: white; font-size: 20px;">Nossa calculadora</h4>
             <h2 style="font-size: 43px; margin: -2px 0px;">Simulador financeiro da SafeControl</h2>
