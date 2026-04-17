@@ -24,6 +24,11 @@
     background-color: #1fe156;
     height: 100%;
     width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner {
@@ -39,4 +44,45 @@
 
 .font {
     font-family: 'Arial', sans-serif;
+}
+
+.input_border {
+    border-radius: 7px;
+    border: 2px solid #1A3868;
+    padding: 10px;
+    width: 200px;
+    height: 10px;
+    margin-bottom: 20px;
+}
+
+.info {
+    background-color: #e1701f;
+    height: 70%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #1A3868;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4ac2f5;
+
 }
