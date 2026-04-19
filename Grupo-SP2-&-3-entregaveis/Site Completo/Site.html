@@ -5,168 +5,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Document</title>
+    <title>SafeControl | Home</title>
 </head>
 
 <body>
-    <div class="header">
-        <div class="logo">
-            <img class="img_logo" src="logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da SafeControl">
+    <!-- Header com redirecionamento dos botões (anchor points) -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#banner">
+                <img class="img_logo" src="logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da SafeControl">
+            </a>
+            <nav>
+                <a href="#quem_somos">Quem Somos</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#solucao">Solução</a>
+                <a href="#calculadora">Calculadora</a>
+                <a href="./dashboard.html"><button>Acesso Cliente</button></a>
+            </nav>
         </div>
+    </header>
 
-        <nav>
-            <a href="#quem_somos" onclick="scrollTosection(event)">Quem Somos</a>
-            <a href="#solucao" onclick="scrollTosection(event)">Solução</a>
-            <a href="#tec" onclick="scrollTosection(event)">Tecnologia</a>
-            <a href="#calculadora" onclick="scrollTosection(event)">Calculadora</a>
-
-            <button onclick=""><a href="./Tela-cadastro.html">Acesso Cliente</a></button>
-        </nav>
-    </div>
-
-    <div class="banner">
-        <div class="text">
-            <h1 style="color: #081B31; font-family: Poppins; font-size: 50px; line-height: 50px;">
-                Monitore o frescor, proteja seu lucro.
-            </h1>
-
-            <p>
-                Evite perdas de até 3% por encolhimento e preserve o brilho vermelho da carne com monitoramento de temperatura e umidade em tempo real. Preserve a qualidade do produto e garanta conformidade em toda a operação logistica.
-            </p>
-
-            <button style="padding: 0px 40px; margin-top: 10px;"><a href="#">ENTRE EM CONTATO</a></button>
-        </div>
-    </div>
-
-    <div class="quem-somos">
-        <img style="width: 600px;" src="imagens/desenho_Caminhao.PNG" alt="Imagem de um Caminhão">
-        
-        <div id="quem_somos" class="text-Quem_somos">
-            <h4 style="color: #1A3868; font-size: 20px;">Quem Somos</h4>
-            <h2 style="font-size: 36px;">Monitoramento inteligente para garantir a qualidade no transporte de alimentos.</h2>
-            <h4>Somos uma empresa especializada em soluções de monitoramento para a cadeia de transporte de carnes.</h4>
-
-            <p>
-                A Safecontrol Desenvolve soluções IoT que garantem o monitoramento da temperatura e umidade, ajudando empresas a preservar qualidade, reduzir perdas e otimizar processos logísticos.
-            </p>
-        </div>
-    </div>
-
-    <div id="solucao" class="sessao-cards">
-        <div class="card" id="c1">
-            <img style="height: 300px; width: 400px; border-radius: 30px 30px 0px 0px; object-fit:cover" src="imagens/image_Açougue.jpeg" alt="Imagem de um açougue">
-
-            <div class="text-Card">
-                <h2>Monitoramento em tempo real</h2>
-            </div>
-        </div>
-
-        <div class="card" id="c2">
-            <img style="height: 300px; width: 400px; border-radius: 30px 30px 0px 0px; object-fit:cover" src="imagens/image_Caminhao.jpeg" alt="Imagem de um caminhão na estrada">
-
-            <div class="text-Card">
-                <h2>Mais controle, menos perda no transporte</h2>
-            </div>
-        </div>
-
-        <div class="card" id="c3">
-            <img style="height: 300px; width: 400px; border-radius: 30px 30px 0px 0px; object-fit:cover" src="imagens/image_carne.jpeg" alt="Imagem de uma mão pegando carne">
-
-            <div class="text-Card">
-                <h2>Preservação da qualidade do produto</h2>
+    <!-- Banner Hero -->
+    <div class="banner" id="banner">
+        <div class="container">
+            <div class="container-content">
+                <h1>
+                    Monitore o frescor, <br> proteja seu lucro.
+                </h1>
+                <p>
+                    Evite perdas de até 3% por encolhimento e preserve o brilho vermelho da carne com monitoramento
+                    de temperatura e umidade em tempo real. Preserve a qualidade do produto e garanta conformidade em
+                    toda a operação logistica.
+                </p>
+                <a href="#"></a>
+                <button> ENTRE EM CONTATO</button>
+                </a>
             </div>
         </div>
     </div>
 
-    <div id="tec" class="monitoramento">
-        <div class="text-Monitoramento">
-            <h4 style="color: #1A3868; font-size: 20px;">Tecnologia</h4>
-            <h2 style="font-size: 36px; margin: -2px 0px;">Monitoramento inteligente no transporte de carnes</h2>
+    <!-- Tag Main para controlar o corpo do HTML (container) -->
+    <main class="container">
 
-            <p>
-                Nossos sensores IoT acompanham em tempo real as condições de temperatura e umidade durante o transporte. Por seguinte, os dados são enviados para um dashboard com alertas e análises, permitindo agir rapidamente para evitar perdas, manter o padrão de qualidade e garantir a integridade da carga.
-            </p>
-
-            <button style="padding: 0px 40px; margin-top: 10px;"><a href="#">ENTRE EM CONTATO</a></button>
+        <!-- Card Quem Somos -->
+        <div class="quem-somos" id="quem_somos">
+            <img style="width: 500px;" src="imagens/desenho_Caminhao.PNG" alt="Imagem de um Caminhão">
+            <div class="container-content">
+                <h4>Quem Somos</h4>
+                <h2>Dados confiáveis para operações mais seguras e eficientes.</h2>
+                <h6>Somos uma empresa focada em monitoramento inteligente da cadeia do frio.</h6>
+                <p>
+                    Desenvolvemos soluções IoT que garantem controle total da temperatura e umidade, ajudando empresas a
+                    preservar qualidade, reduzir perdas e otimizar processos logísticos.
+                </p>
+            </div>
         </div>
 
-        <img style="width: 600px;" src="imagens/desenho_Monitoramento.PNG" alt="Imagem de um celular realizando um monitoriamento">
-    </div>
+        <!-- Cards Tecnologia -->
+        <div class="sessao-cards" id="tecnologia">
+            <div class="card" id="c1">
+                <img class="card_img" src="imagens/image_Açougue.jpeg" alt="Imagem de um açougue">
 
-    <div id="calculadora" class="calculadora">
-        <div class="text-Calculadora">
-            <h4 style="color: white; font-size: 20px;">Nossa calculadora</h4>
-            <h2 style="font-size: 43px; margin: -2px 0px;">Simulador financeiro da SafeControl</h2>
-
-            <p>
-                Texto Descrição Calculadora.
-            </p>
-        </div>
-
-        <div class="formulario">
-            <div class="card-Entrada">
-                <div class="itens">
-                    <h3 style="padding-left: 10px; font-size: 18px;">Pergunta 1</h3>
-                    <input class="est-Input" type="text" id="ipt_">
-                </div>
-
-                <div class="itens">
-                    <h3 style="font-size: 18px;">Pergunta 2</h3>
-                    <input class="est-Input" type="text" id="ipt_">
+                <div class="text-Card">
+                    <h3>Monitoramento em tempo real</h3>
                 </div>
             </div>
 
-            <div class="card-Envio">
-                <div class="itens" style="width: 100%;">
-                    <h3 style="padding-left: 10px; font-size: 18px;">Pergunta 3</h3>
-                    <input class="est-Input" style="width: 93%;" type="text" id="ipt_">
-                </div>
+            <div class="card" id="c2">
+                <img class="card_img" src="imagens/image_Caminhao.jpeg" alt="Imagem de um caminhão na estrada">
 
-                <button style="font-size: 16px; font-weight: bold; font-family: Inter; margin-top: 20px; width: 96%;" onclick="calculo()">Calcular</button>
+                <div class="text-Card">
+                    <h3>Mais controle, menos perda no transporte</h3>
+                </div>
             </div>
 
-            <div class="card-Resultado">
-                <div class="res" id="msg_Res">
+            <div class="card" id="c3">
+                <img class="card_img" src="imagens/image_carne.jpeg" alt="Imagem de uma mão pegando carne">
+
+                <div class="text-Card">
+                    <h3>Preservação da qualidade do produto</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Solução -->
+        <div class="monitoramento" id="solucao">
+            <div class="container-content" style="width: 460px;">
+                <h4>Nossa solução</h4>
+                <h2>Monitoramento inteligente <br>no transporte de carnes</h2>
+                <p>
+                    Nossos sensores IoT acompanham em tempo real as condições de temperatura e umidade durante o
+                    transporte.
+                    <br>Os dados são em um dashboard com alertas e análises, permitindo agir rapidamente para
+                    evitar perdas, manter o padrão de qualidade e garantir a integridade da carga.
+                </p>
+
+                <button><a href="#">ENTRE EM CONTATO</a></button>
+            </div>
+
+            <img style="width: 600px;" src="imagens/desenho_Monitoramento.PNG"
+                alt="Imagem de um celular realizando um monitoriamento">
+        </div>
+
+        <!-- Card Calculadora -->
+        <div class="calculadora" id="calculadora">
+            <div class="container-content" style=" width: 40%; color: white;">
+                <h4 style="color: white;">Nossa calculadora</h4>
+                <h1>Simulador <br> Financeiro da SafeControl</h1>
+                <p>
+                    Nossa calculadora financeira revela o impacto oculto do transporte inadequado na
+                    sua operação.
+                    <br><br>
+                    Com base em dados reais como tempo fora da faixa ideal, variações ambientais e volume transportado,
+                    ela estima quanto da sua carga foi comprometido — e, mais importante, quanto dinheiro foi perdido
+                    nesse processo.
+                </p>
+            </div>
+
+            <div class="formulario">
+                <div class="formulario-primeiro">
+                    <div class="itens">
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Pergunta 1</h6>
+                        <input type="text" id="ipt_">
+                    </div>
+
+                    <div class="itens">
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Pergunta 2</h6>
+                        <input type="text" id="ipt_">
+                    </div>
+                </div>
+
+                <div class="formulario-segundo">
+                    <div style="width: 100%;">
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Pergunta 3</h6>
+                        <input type="text" id="ipt_">
+                    </div>
+
+                    <button style="width: 100%;" onclick="calculo()">Calcular
+                    </button>
+                </div>
+
+                <div class="card-Resultado">
+                    <div class="res" id="msg_Res">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="res" id="msg_Res2">
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contato">
+                <img style="width: 250px;" src="logo/Logo_SafeControl_Vertical.png" alt="Imagem da Logo da SafeControl">
+
+                <div class="tipos-Contato">
+                    <h2>Entre em Contato</h2>
+
                     <ul>
-
+                        <li>(11) 99999-9999</li>
+                        <li>(11) 99999-9999</li>
+                        <li>contato@safeControl.com</li>
                     </ul>
                 </div>
 
-                <div class="res" id="msg_Res2">
-                    <ul>
+                <div class="tipos-Redes">
+                    <h2>Siga nossas Redes!</h2>
 
+                    <ul>
+                        <li><a href="#">Git Hub</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        <div class="contato">
-            <img style="width: 200px;" src="logo/Logo_SafeControl_Vertical.png" alt="Imagem da Logo da SafeControl">
-
-            <div class="tipos-Contato">
-                <h2>Entre em Contato</h2>
-
-                <ul>
-                    <li>(11) 99999-9999</li>
-                    <li>(11) 99999-9999</li>
-                    <li>contato@safeControl.com</li>
-                </ul>
-            </div>
-
-            <div class="tipos-Redes">
-                <h2>Siga nossas Redes!</h2>
-            
-                <ul>
-                    <li><a href="#">Git Hub</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <p style="font-size: 13px;">SafeControl - Sensores Automatizados ©2026 Todos os Direitos Reservados</p>
-    </div>
+        <p style="font-size: 11px;">SafeControl - Sensores Automatizados ©2026 Todos os Direitos Reservados</p>
+    </footer>
 </body>
+
 </html>
