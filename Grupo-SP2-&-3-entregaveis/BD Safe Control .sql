@@ -52,13 +52,13 @@ simbolo CHAR (2)
 );
 
 CREATE TABLE captura(
-idCaptura INT,
+idCaptura INT AUTO_INCREMENT,
 temperatura DECIMAL(5,2),
 umidade DECIMAL(5,2),
-fkSensor INT,
+fkSensor INT NOT NULL,
 fkUnidadeTemp INT,
 fkUnidadeUmi INT,
-PRIMARY KEY (fkSensor, idCaptura),
+PRIMARY KEY  (idCaptura, fkSensor),
 CONSTRAINT fkCapturaSensor
 	FOREIGN KEY (fkSensor) 
 		REFERENCES sensor(idSensor),
@@ -105,13 +105,13 @@ CONSTRAINT fkTransporteSensor
 );
 
 INSERT INTO empresa (razaoSocial, nomeFantasia, apelido, cnpj) VALUES
-('Safe Control Tecnologia LTDA', 'SafeControl', 'Safe', '12345678000101'),
-('Logística Brasil SA', 'LogBrasil', 'LogBR', '12345678000102'),
-('Transporte Rápido LTDA', 'TransRapido', 'TRap', '12345678000103'),
-('Tech Monitoramento LTDA', 'TechMonitor', 'TMon', '12345678000104'),
-('Carga Segura SA', 'CargaSegura', 'CSeg', '12345678000105'),
-('Brasil Tracking LTDA', 'TrackBR', 'TBR', '12345678000106'),
-('Monitor Express LTDA', 'MonExpress', 'MExp', '12345678000107');
+('JBS S.A.', 'JBS', 'JBS', '12345678000101'),
+('Seara Alimentos Ltda', 'Seara', 'Seara', '12345678000102'),
+('Marfrig Global Foods S.A.', 'Marfrig', 'Marfrig', '12345678000103'),
+('Minerva S.A.', 'Minerva Foods', 'Minerva', '12345678000104'),
+('BRF S.A.', 'BRF', 'BRF', '12345678000105'),
+('Frigol S.A.', 'Frigol', 'Frigol', '12345678000106'),
+('Frisa Frigorífico Rio Doce S.A.', 'Frisa', 'Frisa', '12345678000107');
 
 INSERT INTO cargo (nome) VALUES
 ('Administrador'),
@@ -134,10 +134,10 @@ INSERT INTO usuario (idUsuario, nome, cpf, email, senha, telefone, fkCargo, fkEm
 INSERT INTO statusSensor (numeroStatus) VALUES
 ('0'),
 ('1'),
-('2'),
+('1'),
 ('1'),
 ('2'),
-('0'),
+('1'),
 ('1');
 
 INSERT INTO sensor (codigoRastreio, fkStatus) VALUES
@@ -154,12 +154,12 @@ INSERT INTO unidadeMedida (idUnidade, simbolo) VALUES
 (2, '%');
 
 INSERT INTO captura (idCaptura, temperatura, fkUnidadeTemp, umidade, fkUnidadeUmi, fkSensor) VALUES
-(1, -15.00, 1, 60.00, 2, 1),
+(1, null, 1, null, 2, 1),
 (2, -16.50, 1, 55.00, 2, 2),
 (3, 0.00, 1, 65.00, 2, 3),
 (4, 4.50, 1, 70.00, 2, 4),
-(5, -18.00, 1, 50.00, 2, 5),
-(6, -12.00, 1, 75.00, 2, 6),
+(5, null, 1, null, 2, 5),
+(6, -18.00, 1, 50.00, 2, 6),
 (7, 2.00, 1, 45.00, 2, 7);
 
 
@@ -180,3 +180,37 @@ INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida
 (5, 'EEE5E55', 'Motorista 5', 'MG', 'SP', '2026-04-17 12:00:00', '2026-04-17 16:00:00', 5, 5),
 (6, 'FFF6F66', 'Motorista 6', 'PR', 'SP', '2026-04-17 13:00:00', '2026-04-17 17:00:00', 6, 6),
 (7, 'GGG7G77', 'Motorista 7', 'SC', 'SP', '2026-04-17 14:00:00', '2026-04-17 18:00:00', 7, 7);
+
+
+SELECT t.fkEmpresa , t.placa, t.origem,
+ t.destino, e.nomeFantasia as empresa
+ FROM transporte as t JOIN empresa as e
+	ON t.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1;
+
+SELECT e.nomeFantasia as empresa ,
+ u.nome as funcionario, c.nome as cargo
+	FROM usuario as u JOIN empresa as e ON u.fkEmpresa = e.idEmpresa
+		JOIN cargo as c ON u.fkCargo = c.idCargo;
+        
+SELECT t.idTransporte AS caminhao, 
+	t.placa,
+    e.nomeFantasia AS empresa,
+    IFNULL(c.temperatura, 'Sem registro') AS temperatura,
+    ut.simbolo AS unidade_temperatura, 
+    IFNULL(c.umidade, 'Sem registro') AS umidade,
+    uu.simbolo AS unidade_umidade,
+    CASE ss.numeroStatus
+        WHEN '0' THEN 'Inoperante'
+        WHEN '1' THEN 'Operando'
+        ELSE 'Manutenção'
+    END AS status
+FROM transporte t 
+JOIN empresa e ON t.fkEmpresa = e.idEmpresa
+JOIN sensor s ON t.fkSensor = s.idSensor
+JOIN statusSensor ss ON s.fkStatus = ss.idStatus
+JOIN captura c ON c.fkSensor = s.idSensor
+JOIN unidadeMedida ut ON c.fkUnidadeTemp = ut.idUnidade
+JOIN unidadeMedida uu ON c.fkUnidadeUmi = uu.idUnidade;
+
+	
+    
