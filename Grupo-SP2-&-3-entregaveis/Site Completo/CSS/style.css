@@ -83,9 +83,6 @@ p {
     font-family: Inter;
 }
 
-
-
-
 nav{
     width: 650px;
     
@@ -149,35 +146,6 @@ input {
     transition: all 0.25s ease;
 }
 
-select {
-    width: 100%;
-    padding: 8px 16px;
-
-    border-radius: 24px;
-    border: 1px solid #e6e6e6;
-
-    box-sizing: border-box;
-
-    background: #fdfdfd;
-
-    font-size: 14px;
-    font-family: Inter;
-
-    outline: none;
-    transition: all 0.25s ease;
-}
-
-select:hover {
-    border-color: #bbb;
-}
-
-select:focus {
-    border-color: #1A3868;
-    background: #ffffff;
-
-    box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
-}
-
 input:hover {
     border-color: #bbb;
 }
@@ -189,24 +157,6 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
 }
 
-.radio-group {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.radio-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.radio-item input[type="radio"] {
-    accent-color: #1898CF;
-    cursor: pointer;
-}
 
 /* Estilização do Cabeçalho */
 .header {
@@ -417,31 +367,17 @@ input:focus {
 }
 
 .formulario-segundo{
+    height: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.card-Resultado {
+.card-Resultado{
     background-color: #081B31;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 10px;
-
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
-}
-
-.res {
-    color: #EDEDF1;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.res strong {
-    color: #4ac2f5;
-    font-weight: 600;
+    height: 120px;
+    border-radius: 8px;
 }
 
 /* Estilização da Sessão Footer */

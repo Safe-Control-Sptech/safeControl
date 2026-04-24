@@ -152,10 +152,22 @@ input{
 
 /* Estilização do Banner */
 .banner{
-    height: 535px;
+    height: 550px;
+    width: 50%;
+    background-image: url('../imagens/image_Cadastro.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    opacity: 80%;
+
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.322);
+}
+
+.banner_cadastro{
+    height: 550px;
     width: 50%;
     
-    background-image: url('../imagens/image_Cadastro.jpg');
+    background-image: url('../imagens/image_Login.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center right;

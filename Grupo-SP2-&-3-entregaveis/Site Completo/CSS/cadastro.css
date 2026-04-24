@@ -151,8 +151,8 @@ input{
 }
 
 /* Estilização do Banner */
-.banner{
-    height: 535px;
+.banner_login{
+    height: 550px;
     width: 50%;
     
     background-image: url('../imagens/image_Login.jpg');
