@@ -3,34 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/login.css">
 
+
     <title>Login SAFE_CONTROL</title>
 </head>
-
-<style>
-    body{
-        overflow: hidden;
-    }
-
-    .main{
-        height: auto;
-    }
-
-    .formulario{
-        height: 600px;
-    }
-
-    .banner{
-        height: 600px;
-    }
-
-    .banner_cadastro{
-        height: 600px;
-    }
-</style>
 
 <body>
     <div class="header">
@@ -41,13 +19,13 @@
         </div>
     </div>
 
-    <div class="main" id="tela_login">
+    <div class="main">
         <div class="banner"></div>
-
+        
         <div class="formulario">
             <h2>Login</h2>
-
-            <div class="form">
+            
+            <div class="form">    
                 <div class="form-inputs">
                     <h3>Email: </h3>
                     <input type="text" id="ipt_email">
@@ -58,111 +36,11 @@
                     <input type="text" id="ipt_senha">
                 </div>
 
-                <p>Não tem conta? Inscreva-se agora <button onclick="ocultar_login()">clique aqui</button></p>
-                <button class="entrar" onclick="entrar()">Entrar <!-- <<a class="link-entrar">/a> --></button>
-            </div>
-        </div>
-    </div>
-
-    <div class="main" id="tela_cadastro" style="display: none;">
-        <div class="banner_cadastro"></div>
-
-        <div class="formulario">
-            <h2>Cadastro</h2>
-
-            <div class="form">
-                <div class="form-inputs">
-                    <h3>Email: </h3>
-                    <input type="text" id="ipt_email">
-                </div>
-
-                <div class="form-inputs">
-                    <h3>Senha: </h3>
-                    <input type="text" id="ipt_senha">
-                </div>
-
-                <div class="form-inputs">
-                    <h3>Confirme a Senha: </h3>
-                    <input type="text" id="ipt_confirme">
-                </div>
-
-                <p>Já tem conta? Então entre agora <button onclick="ocultar_cadastro()">clique aqui</button></p>
-                <button class="entrar" onclick="criar()">Cadastrar<!--a class="link-entrar" ></a>--></button>
+                <p>Não tem conta? Inscreva-se agora <a href="./cadastro.html">clique aqui</a></p>
+                <button class="entrar" onclick="entrar()"><a class="link-entrar">Entrar</a></button>
             </div>
         </div>
     </div>
 </body>
-
-<!-- <script src="./JS/cadastroElogin.js"></script> -->
-
+<script src="./JS/cadastroElogin.js"></script>
 </html>
-
-<script>
-
-    const tela_cadastro = document.getElementById("tela_cadastro");
-    const tela_login = document.getElementById("tela_login");
-
-    console.log(emails, senhas)
-
-    function ocultar_login() {
-        tela_cadastro.style.display = "flex";
-        tela_login.style.display = "none";
-    }
-    function ocultar_cadastro() {
-        tela_cadastro.style.display = "none";
-        tela_login.style.display = "flex";
-    }
-
-    // login
-    function entrar() {
-        let login = ipt_email.value;
-        let senha = ipt_senha.value;
-
-        if (login != 'sptech@sptech.school' || senha != 'Senha123@') {
-            alert('Você será redirecionado. AGUARDE!');
-            window.location.replace("./dashboard.html");
-            ocultar_login();
-        } else {
-            alert('email/senha está(ão) incorreto(os)');
-        }
-    }
-
-    // cadastro
-    function criar() {        
-      /*if ((emailcad.includes('@gmail') == false || emailcad.includes('@uol') == false || emailcad.includes('@outlook') == false) &&
-            emailcad.includes('.com', '.org', '.com.br', '.net') == false) {
-            alert('digite um E-mail válido'); 
-        } if (senha.length() < 7) {
-            alert('A senha deve conter no minimo 7 digitos');
-        } */
-
-        let emailcad = ipt_email.value;
-        let senha = ipt_senha.value;
-        let senha_rep = ipt_confirme.value;
-
-        if ((emailcad.indexOf('@gmail') == false ||
-        emailcad.indexOf('@uol') == false ||
-        emailcad.indexOf('@outlook') == false) &&
-        emailcad.indexOf(/*'.com', '.org', '.com.br',*/ '.net') == false) {
-            alert ('digite um E-mail válido');
-        } else if (senha.length < 7) {
-            alert ('A senha deve conter no minimo 7 digitos');
-        } else if (senha_rep != senha) {
-            alert ('As senhas não conhecidem');
-        } else {
-            ocultar_cadastro();
-            
-        }
-        
-    
-        /*
-        if (senha_rep == senha) {
-            ocultar_cadastro();
-            emails.push(emailcad);
-            senhas.push(senha);
-        } else {
-            alert('As senhas não conhecidem');
-        }
-            */
-    }
-</script>
