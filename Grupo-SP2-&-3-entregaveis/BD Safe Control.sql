@@ -51,21 +51,23 @@ idUnidade INT PRIMARY KEY,
 simbolo CHAR (2) 
 );
 
-CREATE TABLE captura (
-idCaptura INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE captura(
+idCaptura INT AUTO_INCREMENT,
 temperatura DECIMAL(5,2),
 umidade DECIMAL(5,2),
 fkSensor INT NOT NULL,
 fkUnidadeTemp INT,
 fkUnidadeUmi INT,
-FOREIGN KEY (fkSensor) 
-REFERENCES sensor(idSensor),
-CONSTRAINT fkCapturaUnidadeTemp  
-FOREIGN KEY (fkUnidadeTemp) 
-REFERENCES unidadeMedida(idUnidade),
-CONSTRAINT fkCapturaUnidadeUmi 
-FOREIGN KEY (fkUnidadeUmi) 
-REFERENCES unidadeMedida(idUnidade)
+PRIMARY KEY  (idCaptura, fkSensor),
+CONSTRAINT fkCapturaSensor
+	FOREIGN KEY (fkSensor) 
+		REFERENCES sensor(idSensor),
+CONSTRAINT fkCapturaUnidadeTemp 
+	FOREIGN KEY (fkUnidadeTemp)
+		REFERENCES unidadeMedida(idUnidade),
+CONSTRAINT fkCapturaUnidadeUmi
+	FOREIGN KEY (fkUnidadeUmi)
+		REFERENCES unidadeMedida(idUnidade)
 );
 
 CREATE TABLE endereco(
@@ -179,6 +181,13 @@ INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida
 (6, 'FFF6F66', 'Motorista 6', 'PR', 'SP', '2026-04-17 13:00:00', '2026-04-17 17:00:00', 6, 6),
 (7, 'GGG7G77', 'Motorista 7', 'SC', 'SP', '2026-04-17 14:00:00', '2026-04-17 18:00:00', 7, 7);
 
+INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida, dtChegada, fkEmpresa, fkSensor) VALUES
+(8,'HHH8H88', 'Motorista 8', 'Santana de Parnaíba' , 'MG' , '2026-04-18 13:00:00' , '2026-04-18 17:00:00' , 2,5),
+(9,'III9I99', 'Motorista 9', 'Curitiba' , 'Porto Alegre' , '2026-04-16 09:00:00' , '2026-04-17 12:00:00' , 2,1);
+
+
+
+
 
 SELECT t.fkEmpresa , t.placa, t.origem,
  t.destino, e.nomeFantasia as empresa
@@ -208,4 +217,7 @@ JOIN sensor s ON t.fkSensor = s.idSensor
 JOIN statusSensor ss ON s.fkStatus = ss.idStatus
 JOIN captura c ON c.fkSensor = s.idSensor
 JOIN unidadeMedida ut ON c.fkUnidadeTemp = ut.idUnidade
-JOIN unidadeMedida uu ON c.fkUnidadeUmi = uu.idUnidade;
+JOIN unidadeMedida uu ON c.fkUnidadeUmi = uu.idUnidade
+WHERE e.idEmpresa=2;
+	
+    
