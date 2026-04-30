@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/login.css">
+    <link rel="stylesheet" href="./CSS/login.cs">
+    <link rel="stylesheet" href="./CSS/teste_login.css">
 
 
     <title>Login SAFE_CONTROL</title>
@@ -12,28 +13,27 @@
 
 <body>
     <div class="header">
-        <button class="voltar"><a class="link-voltar" href="./Site.html">Voltar</a></button>
-
         <div class="logo">
             <img class="img-logo" src="./logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da Safe Control">
         </div>
+        
+        <button class="voltar"><a class="link-voltar" href="./Site.html">Voltar</a></button>
     </div>
 
-    <div class="main">
-        <div class="banner"></div>
-        
+    <div class="main">        
         <div class="formulario">
-            <h2>Login</h2>
-            
-            <div class="form">    
+            <div class="form">  
+                <h2>Login</h2>
+                <div style="color: red;" id="msg_Erro"></div>
+
                 <div class="form-inputs">
                     <h3>Email: </h3>
-                    <input type="text" id="ipt_email">
+                    <input type="text" id="ipt_email" placeholder="email@provedor.com">
                 </div>
 
                 <div class="form-inputs">
                     <h3>Senha: </h3>
-                    <input type="text" id="ipt_senha">
+                    <input type="password" id="ipt_senha" placeholder="********">
                 </div>
 
                 <p>Não tem conta? Inscreva-se agora <a href="./cadastro.html">clique aqui</a></p>

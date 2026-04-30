@@ -5,7 +5,7 @@
         let login = ipt_email.value;
         let senha = ipt_senha.value;
 
-        if (emails.includes(login) || senhas.includes(senha)) {
+        if (login == 'sptech@sptech.school' && senha == 'Senha@123') {
             alert ('email/senha está(ão) incorreto(os)');
         } else {
             alert ('Você será redirecionado. AGUARDE!');

@@ -1,8 +1,13 @@
 body{
    margin: 0px;
    padding: 0px;
-   font-family: sans-serif;
+   font-family: sans-serif; 
    overflow: hidden;
+
+    background-image: url("../imagens/BG_LoginCadastro.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
 }
 
 /* Estilização do Cabeçalho */
@@ -65,8 +70,8 @@ h1{
 
 /* Estilização do Conteúdo Principal */
 .main{
-    height: 610px;
     width: 100%;
+    height: 100%;
 
     display: flex;
     justify-content: center;
@@ -74,9 +79,8 @@ h1{
 }
 
 .formulario{
-    background-color: rgb(245, 245, 245);
-    height: 610px;
-    width: 50%;
+    height: 720px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -99,7 +103,8 @@ h2{
     justify-content: center;
     align-items: center;
 
-    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.327);
+    border-radius: 36px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -115,6 +120,7 @@ h3{
 input{
     height: 25px;
     width: 98%;
+    padding-left: 10px;
 }
 
 .entrar{
@@ -124,7 +130,7 @@ input{
     padding: 0px;
 
     border: 2px solid rgb(0, 132, 255);
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 18px;
 
     transition: all 0.3s ease-in-out;
@@ -136,7 +142,7 @@ input{
 }
 
 .link-entrar{
-    padding: 12px 36px;
+    padding: 14px 36px;
     color: rgb(0, 132, 255);
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -147,8 +153,20 @@ input{
 }
 
 /* Estilização do Banner */
-.banner_login{
+.banner{
     height: 610px;
+    width: 50%;
+    background-image: url('../imagens/image_Cadastro.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    opacity: 80%;
+
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.322);
+}
+
+.banner_cadastro{
+    height: 550px;
     width: 50%;
     
     background-image: url('../imagens/image_Login.jpg');

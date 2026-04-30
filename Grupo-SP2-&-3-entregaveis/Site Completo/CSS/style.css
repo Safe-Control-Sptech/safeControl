@@ -161,7 +161,7 @@ input:focus {
 /* Estilização do Cabeçalho */
 .header {
     background-color: #1A3868;
-    width: 98.8%;
+    width: 100%;
     height: 80px;
 
     margin: 0 auto;
