@@ -1,5 +1,5 @@
-let emails = []
-let senhas = []
+let emails = ['admin', 'aluno@sptech.school'];
+let senhas = ['admin', 'aluno.sptech'];
 
 console.log(emails, senhas)
 // login
@@ -7,13 +7,26 @@ function entrar() {
     let login = ipt_email.value;
     let senha = ipt_senha.value;
 
-    if (login == 'sptech@sptech.school' && senha == 'Admin@123') {
+    let tentativas = 0
+    let validacao = true;
 
-        alert('Você será redirecionado. AGUARDE!');
-        window.location.replace("./dashboard.html");
+    for (let i = 0; i <= emails.length; i++) {
+        if ((login[i] == 'admin' && senha[i] == 'admin') ||
+            (login[i] == 'aluno@sptech.school' && senha[i] == 'aluno.sptech')){
+            validacao = true;
+            window.location.replace("./dashboard.html");
+        } else {
+            validacao = false;
+        }
+    }
 
-    } else {
-        msg_Erro.innerHTML = 'email/senha está(ão) incorreto(os)';
+    if (!validacao) {
+        tentativas++;
+        msg_Erro.innerHTML = `Tentativa ${tentativas}: Email/senha incorretos`;
+    }
+
+    if (tentativas == 3) {
+        msg_Erro.innerHTML += `<br>Limite de tentativas atingido!`;
     }
 }
 // cadastro
