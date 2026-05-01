@@ -147,29 +147,37 @@
                     </div>
                 </div>
 
-                <div class="formulario-primeiro">
-                    <div class="itens">
-                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;"> Tipo de carga</h6>
-                      <div class="radio-group">
-    <label class="radio-item">
-        <input name="Tipo" type="radio" id="rad_congelada" onclick="tipodecarga()">
-        <span>Congelada</span>
-    </label>
 
-    <label class="radio-item">
-        <input name="Tipo" type="radio" id="rad_resfriada" onclick="tipodecarga()">
-        <span>Resfriada</span>
-    </label>
+<div class="formulario-primeiro">
+
+    <div class="itens">
+        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
+            Tipo de carga
+        </h6>
+
+        <label class="radio-item">
+            <input name="Tipo" type="radio" id="rad_congelada" onclick="tipodecarga()">
+            <span>Congelada</span>
+        </label>
+
+        <label class="radio-item">
+            <input name="Tipo" type="radio" id="rad_resfriada" onclick="tipodecarga()">
+            <span>Resfriada</span>
+        </label>
+    </div>
+
+    <div class="itens">
+        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
+            Faixa de temperatura do ambiente de transporte :
+        </h6>
+
+        <select id="sel_temp">
+            <option value="">Selecione o tipo de carga primeiro</option>
+        </select>
+    </div>
+
 </div>
-                    </div>
-
-                    <div class="itens">
-                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;"> Faixa de temperatura do ambiente de transporte : </h6>
-                     <select id="sel_temp">
-             <option value="">Selecione o tipo de carga primeiro</option>
-    </select>
-                    </div>
-                </div>
+                
 
                 <button style="width: 100%;" onclick="analisar()">Calcular
                 </button>

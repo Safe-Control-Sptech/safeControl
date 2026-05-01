@@ -157,6 +157,36 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
 }
 
+select{
+    width: 100%;
+    padding: 8px 16px;
+
+    border-radius: 24px;
+    border: 1px solid #e6e6e6;
+
+    box-sizing: border-box;
+
+    background: #fdfdfd;
+
+    font-size: 14px;
+    font-family: Inter;
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+select :hover {
+    border-color: #bbb;
+}
+
+select:focus {
+    border-color: #1A3868;
+    background: #ffffff;
+
+    box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
+}
+
+
 
 /* Estilização do Cabeçalho */
 .header {
@@ -230,9 +260,9 @@ input:focus {
     width: 100%;
     max-width: 1200px;
 
-    margin: 0 auto; /* centraliza */
+    margin: 0 auto; 
 
-    padding: 0 16px; /* respiro lateral */
+    padding: 0 16px; 
     box-sizing: border-box;
 }
 
@@ -360,24 +390,46 @@ input:focus {
     display: flex;
     flex-direction: row;
     gap: 24px;
+    align-items: flex-start; 
 }
 
 .itens{
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
+
 .formulario-segundo{
-    height: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    height: auto; 
+}
+.radio-item{
+    display: inline-flex;   
+    align-items: center;
+    gap: 6px;               
+    width: fit-content;    
+    
 }
 
+.radio-item input{
+    margin: 0;
+}
 .card-Resultado{
+   
     background-color: #081B31;
-    height: 120px;
     border-radius: 8px;
+
+    padding: 16px;
+
+   
+    min-height: 120px;
+    height: auto;
+
 }
 
 /* Estilização da Sessão Footer */
