@@ -83,25 +83,25 @@ p {
     font-family: Inter;
 }
 
-nav{
+nav {
     width: 650px;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-a{
+a {
     font-size: 15px;
     color: white;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
-nav > a:hover{
-    text-decoration: underline;   
+nav>a:hover {
+    text-decoration: underline;
 }
 
-button{
+button {
     width: fit-content;
     padding: 10px 20px 10px 20px;
 
@@ -123,13 +123,14 @@ button{
     transition: 0.3s;
 }
 
-button:hover{
-    background-color: #4ac2f5;   
+button:hover {
+    background-color: #4ac2f5;
     transform: scale(1.05);
 }
 
 input {
     width: 100%;
+    height: 40px;
     padding: 8px 16px;
 
     border-radius: 24px;
@@ -157,8 +158,9 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
 }
 
-select{
+select {
     width: 100%;
+    height: 40px;
     padding: 8px 16px;
 
     border-radius: 24px;
@@ -203,7 +205,7 @@ select:focus {
     z-index: 10;
     position: fixed;
     top: 0;
-    
+
     flex-shrink: 0;
 }
 
@@ -221,12 +223,12 @@ select:focus {
 }
 
 /* Estilização da Imagem da Logo */
-.img_logo{
+.img_logo {
     max-width: 250px;
     transition: all 0.3s ease-in-out;
 }
 
-.img_logo:hover{
+.img_logo:hover {
     transform: scale(1.05);
 }
 
@@ -240,9 +242,8 @@ select:focus {
     flex-direction: column;
 }
 
-
 /* Estilização do Banner */
-.banner{
+.banner {
     width: 100%;
     height: 550px;
 
@@ -256,19 +257,29 @@ select:focus {
     background-size: cover;
 }
 
+.banner-content {
+    width: 100%;
+    max-width: 480px;
+
+    gap: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
 
-    margin: 0 auto; 
+    margin: 0 auto;
 
-    padding: 0 16px; 
+    padding: 0 16px;
     box-sizing: border-box;
 }
 
 
 /* Estilização da Sessão Quem Somos */
-.quem-somos{
+.quem-somos {
     height: auto;
     width: 100%;
     padding: 80px 0px 40px;
@@ -279,7 +290,7 @@ select:focus {
 }
 
 /* Estilização da Sessão Cards */
-.sessao-cards{
+.sessao-cards {
     height: auto;
     width: 100%;
     padding: 40px 0px;
@@ -292,7 +303,7 @@ select:focus {
 }
 
 /* Estilização dos Cards */
-.card{
+.card {
     height: 450px;
     width: 400px;
 
@@ -302,36 +313,39 @@ select:focus {
     transition: all 0.3s ease-in-out;
 }
 
-.card_img{
+.card_img {
     height: 300px;
     width: 400px;
     border-radius: 30px 30px 0px 0px;
-    object-fit:cover
+    object-fit: cover
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.05);
 }
 
-.text-Card{
-    color: white; font-size: 23px; padding: 0px 20px; text-align: center;
+.text-Card {
+    color: white;
+    font-size: 23px;
+    padding: 0px 20px;
+    text-align: center;
 }
 
 /* Cores de Fundo dos 3 Cards */
-#c1{
+#c1 {
     background-color: #0D4D69;
 }
 
-#c2{
+#c2 {
     background-color: #13729C;
 }
 
-#c3{
+#c3 {
     background-color: #1898CF;
 }
 
 /* Estilização da Sessão Monitoramento */
-.monitoramento{
+.monitoramento {
     height: auto;
     width: 100%;
     padding: 40px 0px 80px;
@@ -342,11 +356,11 @@ select:focus {
 }
 
 /* Estilização da Sessão Calculadora */
-.calculadora{
+.calculadora {
     background-color: #1A3868;
     height: auto;
     width: 100%;
-    padding: 40px;
+    padding: 32px;
     border-radius: 24px;
 
     margin-bottom: 80px;
@@ -358,7 +372,7 @@ select:focus {
     align-items: center;
 }
 
-.text-Calculadora{
+.text-Calculadora {
     height: 380px;
     width: 430px;
     padding: 5px 20px;
@@ -371,10 +385,9 @@ select:focus {
 }
 
 /* Estilização Formulário Calculadora */
-.formulario{
+.formulario {
     height: auto;
     width: 60%;
-    padding: 16px;
 
     gap: 16px;
 
@@ -385,55 +398,93 @@ select:focus {
     color: white;
 }
 
-.formulario-primeiro{
+.formulario-primeiro {
     width: 100%;
     display: flex;
     flex-direction: row;
     gap: 24px;
-    align-items: flex-start; 
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-.itens{
+.itens {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    flex: 1;
 }
 
 
-.formulario-segundo{
+.formulario-segundo {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
 
-    height: auto; 
-}
-.radio-item{
-    display: inline-flex;   
-    align-items: center;
-    gap: 6px;               
-    width: fit-content;    
-    
+    height: auto;
 }
 
-.radio-item input{
+.radio-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex: 1;
+}
+
+.radio-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+
+    font-weight: bold;
+}
+
+.input-radio {
+    height: 18px;
+    width: 18px;
+}
+
+.div-radio {
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px;
+
+    gap: 36px;
+
+    display: flex;
+    justify-content: center;
+
+    border-radius: 24px;
+    border: 1px solid #e6e6e6;
+
+    align-content: center;
+
+    box-sizing: border-box;
+
+    color: #ffffff;
+    background: #ffffff22;
+}
+
+.radio-item input {
     margin: 0;
 }
-.card-Resultado{
-   
+
+.card-Resultado {
+
     background-color: #081B31;
     border-radius: 8px;
 
     padding: 16px;
 
-   
+
     min-height: 120px;
     height: auto;
 
 }
 
 /* Estilização da Sessão Footer */
-.footer{
+.footer {
     background-color: #1A3868;
     height: fit-content;
     color: white;
@@ -459,7 +510,7 @@ select:focus {
     padding: 0 16px;
 }
 
-.contato{
+.contato {
     height: auto;
     width: 100%;
     padding: 20px 0px;
@@ -469,6 +520,6 @@ select:focus {
     align-items: center;
 }
 
-ul{
+ul {
     list-style-type: none;
 }

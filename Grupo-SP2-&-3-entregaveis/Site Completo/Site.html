@@ -28,7 +28,7 @@
     <!-- Banner Hero -->
     <div class="banner" id="banner">
         <div class="container">
-            <div class="container-content">
+            <div class="banner-content">
                 <h1>
                     Monitore o frescor, <br> proteja seu lucro.
                 </h1>
@@ -125,59 +125,64 @@
             <div class="formulario">
                 <div class="formulario-primeiro">
                     <div class="itens">
-                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o tamanho da carga?</h6>
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o tamanho da carga?
+                        </h6>
                         <select id="tam_carga">
-        <option value="P">Carga P (2 - 4 toneladas) </option>
-        <option value="M">Carga M 6 - 12 toneladas </option>
-        <option value="G">Carga G (até 30 toneladas) </option>
+                            <option value="P">Carga P (2 - 4 toneladas) </option>
+                            <option value="M">Carga M 6 - 12 toneladas </option>
+                            <option value="G">Carga G (até 30 toneladas) </option>
 
-    </select>
+                        </select>
                     </div>
 
                     <div class="itens">
-                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o peso da carga (em kg):</h6>
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o peso da carga
+                            (kg):</h6>
                         <input type="text" id="ipt_peso">
                     </div>
                 </div>
 
                 <div class="formulario-segundo">
                     <div style="width: 100%;">
-                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o tempo do transporte desta carga (em horas):</h6>
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">Qual o tempo do
+                            transporte desta carga (em horas):</h6>
                         <input type="text" id="ipt_tempo">
                     </div>
                 </div>
 
 
-<div class="formulario-primeiro">
+                <div class="formulario-primeiro">
 
-    <div class="itens">
-        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
-            Tipo de carga
-        </h6>
+                    <div class="itens">
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
+                            Selecione o tipo de carga:
+                        </h6>
+                        <div class="div-radio">
 
-        <label class="radio-item">
-            <input name="Tipo" type="radio" id="rad_congelada" onclick="tipodecarga()">
-            <span>Congelada</span>
-        </label>
+                            <label class="radio-item">
+                                <input class="input-radio" name="Tipo" type="radio" id="rad_congelada" onclick="tipodecarga()">
+                                <span>Congelada</span>
+                            </label>
+                            
+                            <label class="radio-item">
+                                <input class="input-radio" name="Tipo" type="radio" id="rad_resfriada" onclick="tipodecarga()">
+                                <span>Resfriada</span>
+                            </label>
+                        </div>
+                    </div>
 
-        <label class="radio-item">
-            <input name="Tipo" type="radio" id="rad_resfriada" onclick="tipodecarga()">
-            <span>Resfriada</span>
-        </label>
-    </div>
+                    <div class="itens">
+                        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
+                            Temperatura do ambiente de transporte:
+                        </h6>
 
-    <div class="itens">
-        <h6 style="color: white; padding-bottom: 8px; margin-block-start: 0px;">
-            Faixa de temperatura do ambiente de transporte :
-        </h6>
+                        <select id="sel_temp">
+                            <option value="">Selecione o tipo de carga primeiro</option>
+                        </select>
+                    </div>
 
-        <select id="sel_temp">
-            <option value="">Selecione o tipo de carga primeiro</option>
-        </select>
-    </div>
+                </div>
 
-</div>
-                
 
                 <button style="width: 100%;" onclick="analisar()">Calcular
                 </button>
@@ -233,28 +238,28 @@
 
 <script>
 
-function tipodecarga(){
-    
-    sel_temp.innerHTML = "";
+    function tipodecarga() {
 
-    if (rad_congelada.checked) {
-        sel_temp.innerHTML = `
-            <option value="">Selecione</option>
+        sel_temp.innerHTML = "";
+
+        if (rad_congelada.checked) {
+            sel_temp.innerHTML = `
+            <option value="">Selecione a temperatura</option>
             <option value="c1">-18 a -12</option>
             <option value="c2">-11 a -6</option>
             <option value="c3">-5 a -1</option>
             <option value="c4">acima de 0</option>
         `;
-    } 
-    else if (rad_resfriada.checked) {
-        sel_temp.innerHTML = `
-            <option value="">Selecione</option>
+        }
+        else if (rad_resfriada.checked) {
+            sel_temp.innerHTML = `
+            <option value="">Selecione a temperatura</option>
             <option value="r1">0 a 4</option>
             <option value="r2">5 a 7</option>
             <option value="r3">acima de 7</option>
         `;
+        }
     }
-}
     function analisar() {
         var tamanho = tam_carga.value;
         var tempo = Number(ipt_tempo.value);
@@ -268,86 +273,85 @@ function tipodecarga(){
         var tipodecarga = '';
         var risco = '';
 
-        
+
 
         let ax_erros = ''
 
         if (tamanho == 'P' && (peso < 2000 || peso > 4000)) {
-            ax_erros += " Carga P deve estar entre 2000kg e 4000kg"
+            ax_erros += " Carga P deve estar entre 2000kg e 4000kg."
         }
-         if (tamanho == 'M' && (peso < 6000 || peso > 12000)) {
-            ax_erros += " Carga M deve estar entre 6000kg e 12000kg"
+        if (tamanho == 'M' && (peso < 6000 || peso > 12000)) {
+            ax_erros += " Carga M deve estar entre 6000kg e 12000kg."
         }
-         if (tamanho == 'G' && (peso < 12001 || peso > 30000)) {
-             ax_erros += "Carga G deve estar entre 12001kg e 30000kg";
+        if (tamanho == 'G' && (peso < 12001 || peso > 30000)) {
+            ax_erros += " Carga G deve estar entre 12001kg e 30000kg.";
         }
-         if (tempo == "" || tempo <= 0) {
-
-            ax_erros += ' Para usar o programa insira algum valor  valido no campo de tempo de transporte  !'
+        if (tempo == "" || tempo <= 0) {
+            ax_erros += ' Para usar o programa insira algum valor válido no campo de tempo de transporte!'
         }
         if (ax_erros != '') {
-            alert(ax_erros)
+            msg_Res.innerHTML = `${ax_erros}`;
+            msg_Res.style.color = "red";
 
-            
-        }else {
-             if (faixa == "c1" || faixa == "r1") {
-            perda_hora = 0.00;
-            risco = 'padrão'
-        } 
-        else if (faixa == "c2" || faixa == "r2") {
-            perda_hora = 0.02;
-            risco = 'leve'
-        } 
-        else if (faixa == "c3") {
-            perda_hora = 0.04;
-            risco = 'moderado'
-        } 
-        else if (faixa == "c4" || faixa == "r3") {
-            perda_hora = 0.06;
-            risco = 'altissimo'
+        } else {
+            if (faixa == "c1" || faixa == "r1") {
+                perda_hora = 0.00;
+                risco = 'padrão'
+            }
+            else if (faixa == "c2" || faixa == "r2") {
+                perda_hora = 0.02;
+                risco = 'leve'
+            }
+            else if (faixa == "c3") {
+                perda_hora = 0.04;
+                risco = 'moderado'
+            }
+            else if (faixa == "c4" || faixa == "r3") {
+                perda_hora = 0.06;
+                risco = 'altissimo'
+            }
+
+            if (congelada) {
+                tipodecarga = 'congelada';
+            } else if (resfriada) {
+                tipodecarga = 'resfriada';
+            }
+
+
+
+
+            var perda_base = peso * perda_padrao;
+            var perda_total = perda_base + (tempo * perda_hora * peso);
+            var prejuizo = perda_total * preco_kg;
+            var investimento = peso * preco_kg;
+
+            var prejuizoFormatado = prejuizo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            var investimentoFormatado = investimento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            var precoFormatado = preco_kg.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            var perdaFormatada = perda_total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+
+            msg_Res.innerHTML = `
+            <p>
+            Com base nas informações fornecidas — incluindo a carga ser ${tipodecarga}, 
+            o tamanho da carga ${tamanho}, o tempo de transporte de 
+            ${tempo} horas e risco ${risco} — foi identificado impacto na conservação.
+            </p>
+
+            <p>
+            Perda estimada: ${perdaFormatada} kg <br>
+            Valor do kg: ${precoFormatado}<br>
+            Investimento: ${investimentoFormatado}<br>
+            Prejuízo: ${prejuizoFormatado} <br> <br> 
+            <b>Powered by:</b> Anvisa , Mapa, Marfrig
+            </p>
+            `;
+
+            msg_Res.style.color = "white";
         }
 
-           if (congelada){
-            tipodecarga = 'congelada';
-           } else if(resfriada){
-            tipodecarga='resfriada';
-           }
 
 
-           
-
-        var perda_base = peso * perda_padrao;
-        var perda_total = perda_base + (tempo * perda_hora * peso);
-        var prejuizo = perda_total * preco_kg;
-        var investimento = peso *preco_kg;
-
-var prejuizoFormatado = prejuizo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-var investimentoFormatado = investimento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-var precoFormatado = preco_kg.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-var perdaFormatada = perda_total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
-
-
-       msg_Res.innerHTML = `
-<p>
-Com base nas informações fornecidas — incluindo a carga ser ${tipodecarga}, 
-o tamanho da carga ${tamanho}, o tempo de transporte de 
-${tempo} horas e risco ${risco} — foi identificado impacto na conservação.
-</p>
-
-<p>
- Perda estimada:${perdaFormatada} kg <br>
- Valor do kg: ${precoFormatado}<br>
- Investimento: ${investimentoFormatado}<br>
- Prejuízo:${prejuizoFormatado} <br> <br> 
- Powered by : Anvisa , Mapa, Marfrig
-</p>
-`;
-      
-        
-        }
-
-
-        
     }
 
 </script>
