@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    <!-- Header com apenas o logo -->
     <div class="header">
         <div class="logo">
             <a href="./Site.html">
@@ -23,26 +23,28 @@
         </div>
     </div>
 
+    <!-- Menu fixo de navegação -->
     <div class="menu-fixo">
         <nav>
             <button class="button-menu" onclick="mostrar_visao_geral()">Visão Geral</button>
             <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
-            <button class="button-menu" onclick="">Calculadora</button>
-            <button class="button-menu" onclick="mostrar_perfil()">Pefil</button>
+            <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
             <a href="./Site.html">
                 <button class="button-sair">Sair</button>
             </a>
         </nav>
     </div>
 
+    <!-- Div da visão geral -->
     <div id="div_visao_geral">
         <div class="container div_texto">
             <h1>Visão Geral</h1>
             <p>Bem-vindo ao painel de gerenciamento.</p>
         </div>
 
+        <!-- Div das KPIS -->
         <div class="container div_body">
-
+            <!-- KPI Alertas -->
             <div class="kpi-card">
                 <div class="kpi-info">
                     <span class="kpi-title">Alertas Críticos</span>
@@ -50,32 +52,33 @@
                     <span class="kpi-change" id="kpi-change-alertas">Nenhum Sensor</span>
                 </div>
             </div>
-
+            <!-- KPI Temp -->
             <div class="kpi-card">
                 <div class="kpi-info">
-                    <span class="kpi-title">Maior Temperatura Registrada</span>
+                    <span class="kpi-title">Maior Mediana de Temperatura</span>
                     <h2 class="kpi-value" id="kpi-max">-- °C</h2>
                     <span class="kpi-change" id="kpi-change">00/00</span>
                 </div>
             </div>
-
+            <!-- KPI Umi -->
             <div class="kpi-card">
                 <div class="kpi-info">
-                    <span class="kpi-title">Maior Umidade Registrada</span>
+                    <span class="kpi-title">Maior Mediana de Umidade</span>
                     <h2 class="kpi-value" id="kpi-max-umi">--%</h2>
                     <span class="kpi-change" id="kpi-change-umi">00/00</span>
                 </div>
             </div>
-
+            <!-- KPI Sensores -->
             <div class="kpi-card">
                 <div class="kpi-info">
                     <span class="kpi-title">Sensores Totais</span>
-                    <h2 class="kpi-value" id="kpi-sensores">--</h2>
-                    <span class="kpi-change positivo" id="kpi-sensores-ativos">--</span>
+                    <h2 class="kpi-value">4</h2>
+                    <span class="kpi-change positivo">2 Ativos</span>
                 </div>
             </div>
         </div>
 
+        <!-- Barra de navegação entre tabelas -->
         <div class="container">
             <div class="agrupar">
                 <button id="sensor_temp" onclick="ocultar_umid()"> Sensor 1 - <b>Gráfico Temperatura</b></button>
@@ -84,6 +87,7 @@
 
         </div>
 
+        <!-- Gráfico Temperatura -->
         <div class="container" id="temperatura">
             <div class="grafico">
                 <canvas id="meuGrafico"></canvas>
@@ -91,6 +95,7 @@
 
         </div>
 
+        <!-- Gráfico Umidade -->
         <div class="container div_chart" id="umidade">
 
             <div class="grafico_linha">
@@ -100,14 +105,15 @@
         </div>
     </div>
 
+    <!-- Div da página dos sensores -->
     <div id="div_sensores">
         <div class="container div_texto">
             <h1>Sensores</h1>
             <p>Confira com detalhes os seus sensores!</p>
         </div>
-
+        <!-- DIV das KPIS -->
         <div class="container div_body">
-
+            <!-- KPI Sensor 1 -->
             <div class="kpi-card">
                 <div class="kpi-info" id="kpi_sensor_1">
                     <span class="kpi-title">Escolha o sensor</span>
@@ -115,7 +121,7 @@
                     <span class="kpi-change positivo">Sensor ativo</span>
                 </div>
             </div>
-
+            <!-- KPI Sensor 2 -->
             <div class="kpi-card">
                 <div class="kpi-info" id="kpi_sensor_2">
                     <span class="kpi-title">Escolha o sensor</span>
@@ -123,7 +129,7 @@
                     <span class="kpi-change positivo">Sensor ativo</span>
                 </div>
             </div>
-
+            <!-- KPI Sensor 3 -->
             <div class="kpi-card negativo">
                 <div class="kpi-info">
                     <span class="kpi-title">Escolha o sensor</span>
@@ -131,7 +137,7 @@
                     <span class="kpi-change negativo">Sensor desativado</span>
                 </div>
             </div>
-
+            <!-- KPI Sensor 4 -->
             <div class="kpi-card negativo">
                 <div class="kpi-info">
                     <span class="kpi-title">Escolha o sensor</span>
@@ -140,7 +146,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Barra de navegação entre tabelas -->
         <div class="container">
             <div class="agrupar" id="sensor_1">
                 <button id="sensor_temp" onclick="ocultar_umid2()"> Sensor 1 - <b>Gráfico Temperatura</b></button>
@@ -151,14 +157,14 @@
                 <button id="sensor_umid" onclick="ocultar_temp2()"> Sensor 2 - <b>Gráfico Umidade</b></button>
             </div>
         </div>
-
+        <!-- Gráfico Temperatura -->
         <div class="container" id="temperatura2">
             <div class="grafico">
                 <canvas id="meuGrafico3"></canvas>
             </div>
 
         </div>
-
+        <!-- Gráfico Umidade -->
         <div class="container div_chart" id="umidade2">
             <div class="grafico_linha">
                 <canvas id="meuGrafico4"></canvas>
@@ -167,6 +173,7 @@
         </div>
     </div>
 
+    <!-- Div da página de perfil -->
     <div id="div_perfil">
         <div class="container div_texto">
             <h1>Perfil</h1>
@@ -184,27 +191,27 @@
             <!-- DADOS -->
             <div class="campo">
                 <label>Nome Completo</label>
-                <input type="text" value="Carlos Eduardo Martins" disabled>
+                <input type="text" value="Carlos Eduardo Martins">
             </div>
 
             <div class="campo">
                 <label>Email</label>
-                <input type="email" value="carlos.martins@safecontrol.com" disabled>
+                <input type="email" value="carlos.martins@safecontrol.com">
             </div>
 
             <div class="campo">
                 <label>CPF</label>
-                <input type="text" value="527.894.163-08" disabled>
+                <input type="text" value="527.894.163-08">
             </div>
 
             <div class="campo">
                 <label>Telefone</label>
-                <input type="text" value="(11) 98765-4321" disabled>
+                <input type="text" value="(11) 98765-4321">
             </div>
 
             <div class="campo">
                 <label>Empresa</label>
-                <input type="text" value="SafeControl LTDA" disabled>
+                <input type="text" value="SafeControl LTDA">
             </div>
 
             <!-- BOTÕES -->
@@ -214,25 +221,13 @@
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
 
 <script>
-    const inputs = document.querySelectorAll("input");
 
-    function habilitarEdicao() {
-        inputs.forEach(input => input.disabled = false);
-    }
-
-    function salvarEdicao() {
-        inputs.forEach(input => input.disabled = true);
-    }
-
-    // CONFIG DE EXIBIR E OCULTAR OS GRÁFICOS NA DASHBOARD
-
+    // CHAMADAS DOS ELEMENTOS PRESENTES NO CORPO DO HTML E CONFIG DE VARIÁVEIS DAS KPIs
     const temperatura = document.getElementById("temperatura");
     const umidade = document.getElementById("umidade");
 
@@ -247,25 +242,17 @@
     const div_kpi_1 = document.getElementById("kpi_sensor_1");
     const div_kpi_2 = document.getElementById("kpi_sensor_2");
 
-    div_sensor_2.style.display = "none";
+    const button_inicial = document.getElementById("sensor_temp")
+    const button_visao_geral = document.getElementById("sensor_temp")
 
-    div_kpi_1.addEventListener("click", () => {
-        div_sensor_1.style.display = "block";
-        div_sensor_2.style.display = "none";
-        ocultar_umid2();
-    });
-    div_kpi_2.addEventListener("click", () => {
-        div_sensor_2.style.display = "block";
-        div_sensor_1.style.display = "none";
-        ocultar_temp2();
-    });
+    // CONFIGs DE EXIBIR E OCULTAR OS GRÁFICOS NA DASHBOARD
+    div_sensor_2.style.display = "none";
 
     umidade.style.display = "none";
     umidade2.style.display = "none";
     div_sensores.style.display = "none";
     div_perfil.style.display = "none";
 
-    const button_inicial = document.getElementById("sensor_temp")
     button_inicial.focus();
 
     function mostrar_visao_geral() {
@@ -313,37 +300,12 @@
     const kpiChange = document.getElementById("kpi-change");
     const kpiChange2 = document.getElementById("kpi-change-umi");
     const kpiChangeAlertas = document.getElementById("kpi-change-alertas");
-    const kpiSensores = document.getElementById("kpi-sensores");
-    const kpiSensoresAtivos = document.getElementById("kpi-sensores-ativos");
-    let ultimoMax = null;
-    let ultimoMax2 = null;
+
+    let ultimoMax = 0;
+    let ultimoMax2 = 0;
     let alertaTemp = false;
     let alertaUmidade = false;
     let totalAlertas = 0;
-
-    // DEFININDO VALORES ALEATÓRIOS PARA A KPI DE SENSORES TOTAIS
-    const sensores = Number((Math.random() * (10 - (2)) + (2)).toFixed());
-    const kpi_sensores = (sensores / 1.5).toFixed(0);
-
-    kpiSensores.innerText = sensores;
-    kpiSensoresAtivos.innerText = Math.floor(sensores / 1.5) + " Ativos";
-
-    // CONFIG DA LINHA CONSTANTE DE VALOR MÁXIMO E MÍNIMO
-    function criarLinhaConstante(valor, tamanho) {
-        return Array(tamanho).fill(valor);
-    }
-
-    // FUNCTION QUE SETA A CONFIG DA DATA
-    let dataAtual = new Date(2026, 5, 5);
-    function formatarData(data) {
-        const dia = String(data.getDate()).padStart(2, '0');
-        const mes = String(data.getMonth() + 1).padStart(2, '0');
-        return `${dia}/${mes}`;
-    }
-
-    // VARIÁVEIS QUE SIMULAM A DATA DO REGISTRO DO SENSOR
-    const agora = new Date();
-    const tempo = agora.toLocaleTimeString();
 
     // VARIÁVEIS QUE PUXAM O ID DO HTML PARA SEREM REFERENCIADOS NO JS
     const ctx = document.getElementById('meuGrafico');
@@ -355,7 +317,7 @@
     const grafico = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [],
+            labels: ['05/05', '06/05', '07/05', '08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '14/05'],
             datasets: [{
                 label: '  Temperatura Mediana',
                 data: [],
@@ -368,14 +330,14 @@
             },
             {
                 label: 'Máxima',
-                data: criarLinhaConstante(4, 10),
+                data: ['4', '4', '4', '4', '4', '4', '4', '4', '4', '4'],
                 borderColor: 'red',
                 borderWidth: 2,
                 pointRadius: 0
             },
             {
                 label: 'Mínima',
-                data: criarLinhaConstante(-6, 10),
+                data: ['-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4'],
                 borderColor: 'blue',
                 borderWidth: 2,
                 pointRadius: 0
@@ -387,7 +349,7 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    min: -10,
+                    min: -8,
                     max: 8
                 }
             },
@@ -397,28 +359,23 @@
             }
         }
     });
+
     // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 1
     setInterval(() => {
         const novoValor = Number((Math.random() * (6 - (-6)) + (-6)).toFixed());
 
-        grafico.data.labels.push(formatarData(dataAtual));
         grafico.data.datasets[0].data.push(novoValor);
 
-        dataAtual.setDate(dataAtual.getDate() + 1);
-
         // SHIFT DO GRÁFICO
-        if (grafico.data.labels.length > 10) {
-            grafico.data.labels = grafico.data.labels.slice(-10);
-            grafico.data.datasets[0].data = grafico.data.datasets[0].data.slice(-10);
+        if (grafico.data.datasets[0].data.length > 10) {
+            grafico.data.datasets[0].data.shift();
         }
         // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
         if (novoValor > 4) {
             grafico.data.datasets[0].borderColor = '#ff4d4f';
-            grafico.data.datasets[0].pointBackgroundColor = '#ff4d4f';
             grafico.data.datasets[0].pointBorderColor = '#ff4d4f';
         } else {
             grafico.data.datasets[0].borderColor = '#4facfe';
-            grafico.data.datasets[0].pointBackgroundColor = '#4facfe';
             grafico.data.datasets[0].pointBorderColor = '#4facfe';
         }
 
@@ -426,25 +383,20 @@
 
         // CONSTANTES PARA A ATUALIZAÇÃO DAS KPIS
         const dados = grafico.data.datasets[0].data;
+        const labels = grafico.data.labels;
         const maxValor = Math.max(...dados);
         const ultimoValor = dados[dados.length - 1];
+        let dataEventoTemp = 0;
 
         // ATUALIZANDO VALORES DA KPI DE TEMP MÁXIMA
         if (dados.length > 0) {
             const maxAtual = Math.max(...dados);
             kpiMax.innerText = maxAtual.toFixed(0) + " °C";
-            if (ultimoMax === null) {
+            if (ultimoMax == 0) {
                 ultimoMax = maxAtual;
-                kpiChange.innerText = formatarData(dataAtual);
-                return;
             }
             if (maxAtual > ultimoMax) {
-                const dataRegistro = formatarData(dataAtual);
-                kpiChange.innerText = dataRegistro;
                 ultimoMax = maxAtual;
-            }
-            if (ultimoValor === maxAtual) {
-                kpiChange.innerText = formatarData(dataAtual);
             }
         }
 
@@ -465,20 +417,33 @@
         let texto = "";
         let temAlerta = false;
 
-        // temperatura
+        // ESTRUTURA DE REPETIÇÃO PARA ACHAR A OCORRÊNCIA
+        for (let i = dados.length - 1; i >= 0; i--) {
+            if (dados[i] >= 4) {
+                dataEventoTemp = labels[i];
+                break;
+            }
+        }
+
+        // ATUALIZANDO KPI-CHANGE TEMPERATURA
         if (alertaTemp) {
             texto += "Sensor 1 - Temperatura";
             temAlerta = true;
         }
-
-        // umidade
-        if (alertaUmidade) {
-            if (temAlerta) texto += " | ";
-            texto += "Sensor 1 - Umidade";
-            temAlerta = true;
+        if (dataEventoTemp != 0) {
+            kpiChange.innerText = `${dataEventoTemp}`;
         }
 
-        // resultado final
+        // ATUALIZANDO KPI-CHANGE UMIDADE
+        if (alertaUmidade) {
+            if (temAlerta) {
+                texto += " | ";
+                texto += "Sensor 1 - Umidade";
+                temAlerta = true;
+            }
+        }
+
+        // ATUALIZANDO O TEXTO
         if (!temAlerta) {
             kpiChangeAlertas.innerText = "Nenhum Sensor";
             kpiChangeAlertas.style.color = "#888";
@@ -492,11 +457,11 @@
     const grafico2 = new Chart(ctx2, {
         type: 'bar',
         data: {
-            labels: [],
+            labels: ['05/05', '06/05', '07/05', '08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '14/05'],
             datasets: [
                 {
                     label: 'Máxima',
-                    data: criarLinhaConstante(85, 10),
+                    data: ['85', '85', '85', '85', '85', '85', '85', '85', '85', '85'],
                     backgroundColor: '#535353'
                 },
                 {
@@ -506,7 +471,7 @@
                 },
                 {
                     label: 'Mínima',
-                    data: criarLinhaConstante(70, 10),
+                    data: ['70', '70', '70', '70', '70', '70', '70', '70', '70', '70'],
                     backgroundColor: '#888'
                 }]
         },
@@ -526,19 +491,16 @@
             }
         }
     });
+
     // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 2
     setInterval(() => {
         const novoValor2 = Number((Math.random() * (90 - 65) + 65).toFixed());
 
-        grafico2.data.labels.push(formatarData(dataAtual));
         grafico2.data.datasets[1].data.push(novoValor2);
 
-        dataAtual.setDate(dataAtual.getDate());
-
         // SHIFT DO GRÁFICO
-        if (grafico2.data.labels.length > 10) {
-            grafico2.data.labels = grafico2.data.labels.slice(-10);
-            grafico2.data.datasets[1].data = grafico2.data.datasets[1].data.slice(-10);
+        if (grafico2.data.datasets[1].data.length > 10) {
+            grafico2.data.datasets[1].data.shift();
         }
         // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
         if (novoValor2 < 70 || novoValor2 > 85) {
@@ -547,32 +509,24 @@
             grafico2.data.datasets[1].backgroundColor = '#4facfe';
         }
 
-        grafico2.data.datasets[1].BackgroundColor =
-            novoValor2 > 0 ? '#ff4d4f' : '#4facfe';
-
         grafico2.update();
 
         // CONSTANTES PARA A ATUALIZAÇÃO DAS KPIS
         const dados2 = grafico2.data.datasets[1].data;
+        const labels2 = grafico2.data.labels;
         const maxValor2 = Math.max(...dados2);
         const ultimoValor2 = dados2[dados2.length - 1];
+        let dataEventoUmi = 0;
 
         // ATUALIZANDO VALORES DA KPI DE UMIDADE MÁXIMA
         if (dados2.length > 0) {
             const maxAtual2 = Math.max(...dados2);
             kpiMax2.innerText = maxAtual2.toFixed(0) + " %";
-            if (ultimoMax2 === null) {
+            if (ultimoMax2 === 0) {
                 ultimoMax2 = maxAtual2;
-                kpiChange2.innerText = formatarData(dataAtual);
-                return;
             }
             if (maxAtual2 > ultimoMax2) {
-                const dataRegistro = formatarData(dataAtual);
-                kpiChange2.innerText = dataRegistro;
                 ultimoMax2 = maxAtual2;
-            }
-            if (ultimoValor2 === maxAtual2) {
-                kpiChange2.innerText = formatarData(dataAtual);
             }
         }
 
@@ -589,24 +543,35 @@
             kpiAlertas.innerText = totalAlertas;
         }
 
+        // ESTRUTURA DE REPETIÇÃO PARA ACHAR A OCORRÊNCIA
+        for (let i = dados2.length - 1; i >= 0; i--) {
+            if (dados2[i] >= 4) {
+                dataEventoUmi = labels2[i];
+                break;
+            }
+        }
+
         // ATUALIZANDO O SUBTITULO DA KPI DE ALERTAS
         let texto = "";
         let temAlerta = false;
 
-        // temperatura
+        // ATUALIZANDO KPI-CHANGE TEMPERATURA
         if (alertaTemp) {
             texto += "Sensor 1 - Temperatura";
             temAlerta = true;
         }
 
-        // umidade
+        // ATUALIZANDO KPI-CHANGE UMIDADE
         if (alertaUmidade) {
             if (temAlerta) texto += " | ";
             texto += "Sensor 1 - Umidade";
             temAlerta = true;
+            if (dataEventoUmi != 0) {
+                kpiChange2.innerText = `${dataEventoUmi}`;
+            }
         }
 
-        // resultado final
+        // ATUALIZANDO O TEXTO
         if (!temAlerta) {
             kpiChangeAlertas.innerText = "Nenhum Sensor";
             kpiChangeAlertas.style.color = "#888";
@@ -620,9 +585,9 @@
     const grafico3 = new Chart(ctx3, {
         type: 'line',
         data: {
-            labels: [],
+            labels: ['05/05: 12:00', '05/05: 13:00', '05/05: 14:00', '05/05: 15:00', '05/05: 16:00', '05/05: 17:00', '05/05: 18:00', '05/05: 19:00', '05/05: 20:00', '05/05: 21:00'],
             datasets: [{
-                label: '  Temperatura Mediana',
+                label: '  Temperatura Atual',
                 data: [],
                 borderColor: '#4facfe',
                 backgroundColor: 'rgba(79, 172, 254, 0.15)',
@@ -633,14 +598,14 @@
             },
             {
                 label: 'Máxima',
-                data: criarLinhaConstante(4, 10),
+                data: ['4', '4', '4', '4', '4', '4', '4', '4', '4', '4'],
                 borderColor: 'red',
                 borderWidth: 2,
                 pointRadius: 0
             },
             {
                 label: 'Mínima',
-                data: criarLinhaConstante(-6, 10),
+                data: ['-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4', '-4'],
                 borderColor: 'blue',
                 borderWidth: 2,
                 pointRadius: 0
@@ -652,7 +617,7 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    min: -10,
+                    min: -8,
                     max: 8
                 }
             },
@@ -662,53 +627,49 @@
             }
         }
     });
+
     // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 3
     setInterval(() => {
         const novoValor = Number((Math.random() * (6 - (-6)) + (-6)).toFixed());
 
-        grafico3.data.labels.push(formatarData(dataAtual));
         grafico3.data.datasets[0].data.push(novoValor);
 
-        dataAtual.setDate(dataAtual.getDate());
-
         // SHIFT DO GRÁFICO
-        if (grafico3.data.labels.length > 10) {
-            grafico3.data.labels = grafico3.data.labels.slice(-10);
-            grafico3.data.datasets[0].data = grafico3.data.datasets[0].data.slice(-10);
+        if (grafico3.data.datasets[0].data.length > 10) {
+            grafico3.data.datasets[0].data.shift();
         }
         // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
         if (novoValor > 4) {
             grafico3.data.datasets[0].borderColor = '#ff4d4f';
-            grafico3.data.datasets[0].pointBackgroundColor = '#ff4d4f';
             grafico3.data.datasets[0].pointBorderColor = '#ff4d4f';
         } else {
             grafico3.data.datasets[0].borderColor = '#4facfe';
-            grafico3.data.datasets[0].pointBackgroundColor = '#4facfe';
             grafico3.data.datasets[0].pointBorderColor = '#4facfe';
         }
 
         grafico3.update();
-    }, 1200);
+
+    }, 1100);
 
     // GRAFICO 4 - UMIDADE
     const grafico4 = new Chart(ctx4, {
         type: 'bar',
         data: {
-            labels: [],
+            labels: ['05/05: 12:00', '05/05: 13:00', '05/05: 14:00', '05/05: 15:00', '05/05: 16:00', '05/05: 17:00', '05/05: 18:00', '05/05: 19:00', '05/05: 20:00', '05/05: 21:00'],
             datasets: [
                 {
                     label: 'Máxima',
-                    data: criarLinhaConstante(85, 10),
+                    data: ['85', '85', '85', '85', '85', '85', '85', '85', '85', '85'],
                     backgroundColor: '#535353'
                 },
                 {
-                    label: 'Umidade Mediana',
+                    label: 'Umidade Atual',
                     data: [],
                     backgroundColor: 'rgba(79, 172, 254)',
                 },
                 {
                     label: 'Mínima',
-                    data: criarLinhaConstante(70, 10),
+                    data: ['70', '70', '70', '70', '70', '70', '70', '70', '70', '70'],
                     backgroundColor: '#888'
                 }]
         },
@@ -728,19 +689,16 @@
             }
         }
     });
+
     // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 4
     setInterval(() => {
         const novoValor4 = Number((Math.random() * (90 - 65) + 65).toFixed());
 
-        grafico4.data.labels.push(formatarData(dataAtual));
         grafico4.data.datasets[1].data.push(novoValor4);
 
-        dataAtual.setDate(dataAtual.getDate());
-
         // SHIFT DO GRÁFICO
-        if (grafico4.data.labels.length > 10) {
-            grafico4.data.labels = grafico4.data.labels.slice(-10);
-            grafico4.data.datasets[1].data = grafico4.data.datasets[1].data.slice(-10);
+        if (grafico4.data.datasets[1].data.length > 10) {
+            grafico4.data.datasets[1].data.shift();
         }
         // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
         if (novoValor4 < 70 || novoValor4 > 85) {
@@ -749,10 +707,7 @@
             grafico4.data.datasets[1].backgroundColor = '#4facfe';
         }
 
-        grafico4.data.datasets[1].BackgroundColor =
-            novoValor4 > 0 ? '#ff4d4f' : '#4facfe';
-
         grafico4.update();
-    }, 1200);
+    }, 1100);
 
 </script>
