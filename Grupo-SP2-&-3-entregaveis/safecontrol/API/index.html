@@ -19,91 +19,63 @@
     </div>
 
     <script>
-        var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
+
+        var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico'), {
             type: 'line',
             data: {
-                datasets: [{
-                    label: 'Analogico',
-                    borderColor: '#63B1BC',
-                    backgroundColor: '#ED145B'
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '(%)'
-                        },
-                        beginAtZero: true,
-                    },
-                },
+                labels: [],
+                datasets: [
+                    { label: 'Congelado Ideal', data: [] },
+                    { label: 'Resfriado Ideal', data: [] },
+                    { label: 'Congelado Crítico', data: [] },
+                    { label: 'Resfriado Crítico', data: [] }
+                ]
             }
         });
 
-        var sensorDigital = new Chart(document.getElementById('sensorDigital').getContext('2d'), {
+        setInterval(() => {
+            obterTemperaturas();
+        }, 1000);
+
+        var sensorDigital = new Chart(document.getElementById('sensorDigital'), {
             type: 'line',
             data: {
-                datasets: [{
-                    label: 'Digital',
-                    borderColor: '#63B1BC',
-                    backgroundColor: '#0762C8'
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '(0-1)'
-                        },
-                        beginAtZero: true
-                    }
-                }
+                labels: [],
+                datasets: [
+                    { label: 'Congelado Ideal', data: [] },
+                    { label: 'Resfriado Ideal', data: [] },
+                    { label: 'Congelado Crítico', data: [] },
+                    { label: 'Resfriado Crítico', data: [] }
+                ]
             }
         });
 
-        var paginacao = {};
-        var tempo = {};
+        function atualizarGrafico(grafico, data) {
+            const labels = data.congeladoIdeal.map((_, i) => i);
 
-        function obterDados(grafico, endpoint) {
-            fetch('http://localhost:3300/sensores/' + endpoint)
-                .then(response => response.json())
-                .then(valores => {
-                    if (paginacao[endpoint] == null) {
-                        paginacao[endpoint] = 0;
-                    }
-                    if (tempo[endpoint] == null) {
-                        tempo[endpoint] = 0;
-                    }
+            grafico.data.labels = labels;
+            grafico.data.datasets[0].data = data.congeladoIdeal;
+            grafico.data.datasets[1].data = data.resfriadoIdeal;
+            grafico.data.datasets[2].data = data.congeladoCritico;
+            grafico.data.datasets[3].data = data.resfriadoCritico;
 
-                    var ultimaPaginacao = paginacao[endpoint];
-                    paginacao[endpoint] = valores.length;
-                    valores = valores.slice(ultimaPaginacao);
+            grafico.update();
+        }
 
-                    valores.forEach((valor) => {
-                        if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                            grafico.data.labels.shift();
-                            grafico.data.datasets[0].data.shift();
-                        }
+        function obterTemperaturas() {
+            fetch('http://localhost:3300/sensores/temperaturas')
+                .then(res => res.json())
+                .then(data => atualizarGrafico(sensorAnalogico, data));
+        }
 
-                        grafico.data.labels.push(tempo[endpoint]++);
-                        grafico.data.datasets[0].data.push(parseFloat(valor));
-                        grafico.update();
-                    });
-                })
-                .catch(error => console.error('Erro ao obter dados:', error));
+        function obterUmidades() {
+            fetch('http://localhost:3300/sensores/umidades')
+                .then(res => res.json())
+                .then(data => atualizarGrafico(sensorDigital, data));
         }
 
         setInterval(() => {
-            obterDados(sensorAnalogico, 'analogico');
-            obterDados(sensorDigital, 'digital');
+            obterUmidades();
         }, 1000);
 
     </script>

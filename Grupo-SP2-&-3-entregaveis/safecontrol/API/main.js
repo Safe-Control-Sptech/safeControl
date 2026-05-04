@@ -14,6 +14,14 @@ const HABILITAR_OPERACAO_INSERIR = true;
 const serial = async (
     valoresSensorAnalogico,
     valoresSensorDigital,
+    tempCongeladoIdeal,
+    tempResfriadoIdeal,
+    tempCongeladoCritico,
+    tempResfriadoCritico,
+    umiCongeladoIdeal,
+    umiResfriadoIdeal,
+    umiCongeladoCritico,
+    umiResfriadoCritico
 ) => {
 
     // conexão com o banco de dados MySQL
@@ -51,22 +59,67 @@ const serial = async (
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
         const valores = data.split(';');
-        const sensorDigital = parseInt(valores[0]);
+
+        const sensorDigital = parseFloat(valores[0]);
         const sensorAnalogico = parseFloat(valores[1]);
 
-        // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(sensorAnalogico);
-        valoresSensorDigital.push(sensorDigital);
 
+        // cálculos (AGORA com number de verdade)
+        const temp1 = Number((sensorAnalogico - 40).toFixed(1));
+        const umi1 = Number((sensorDigital + 10).toFixed(1));
+
+        const temp2 = Number((sensorAnalogico - 25).toFixed(1));
+        const umi2 = Number((sensorDigital + 10).toFixed(1));
+
+        const temp3 = Number((sensorAnalogico - 27).toFixed(1));
+        const umi3 = Number((sensorDigital - 30).toFixed(1));
+
+        const temp4 = Number((sensorAnalogico - 18).toFixed(1));
+        const umi4 = Number((sensorDigital - 40).toFixed(1));
+
+        // arrays
+        tempCongeladoIdeal.push(temp1);
+        tempResfriadoIdeal.push(temp2);
+        tempCongeladoCritico.push(temp3);
+        tempResfriadoCritico.push(temp4);
+
+        umiCongeladoIdeal.push(umi1);
+        umiResfriadoIdeal.push(umi2);
+        umiCongeladoCritico.push(umi3);
+        umiResfriadoCritico.push(umi4);
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
 
-            // este insert irá inserir os dados na tabela "medida"
+            // inserção de dados de um sensor em ambiente  congelado em um cenario ideal na tabela "captura"
             await poolBancoDados.execute(
                 'INSERT INTO captura (temperatura, umidade, fkSensor, fkUnidadeTemp, fkUnidadeUmi) VALUES (?, ?, 1, 1, 2);',
-                [sensorAnalogico, sensorDigital]
+                [temp1, umi1]
             );
-            console.log("valores inseridos no banco: ", sensorAnalogico + ", " + sensorDigital);
+            console.log("valores inseridos no banco: ", temp1 + ", " + umi1);
+
+            // inserção de dados de um sensor em ambiente resfriado em um cenario ideal na tabela "captura"
+            await poolBancoDados.execute(
+                'INSERT INTO captura (temperatura, umidade, fkSensor, fkUnidadeTemp, fkUnidadeUmi) VALUES (?, ?, 2, 1, 2);',
+                [temp2, umi2]
+            );
+            console.log("valores inseridos no banco: ", temp2 + ", " + umi2);
+
+            // inserção de dados de um sensor em ambiente  congelado em um cenario preocupante  na tabela "captura"
+            await poolBancoDados.execute(
+                'INSERT INTO captura (temperatura, umidade, fkSensor, fkUnidadeTemp, fkUnidadeUmi) VALUES (?, ?, 3, 1, 2);',
+                [temp3, umi3]
+            );
+            console.log("valores inseridos no banco: ", temp3 + ", " + umi3);
+
+            // inserção de dados de um sensor em ambiente resfriado em um cenario preocupante na tabela "captura"
+            await poolBancoDados.execute(
+                'INSERT INTO captura (temperatura, umidade, fkSensor, fkUnidadeTemp, fkUnidadeUmi) VALUES (?, ?, 4, 1, 2);',
+                [temp4, umi4]
+            );
+            console.log("valores inseridos no banco: ", temp4 + ", " + umi4);
+
+
+
 
         }
 
@@ -80,8 +133,15 @@ const serial = async (
 
 // função para criar e configurar o servidor web
 const servidor = (
-    valoresSensorAnalogico,
-    valoresSensorDigital
+
+    tempCongeladoIdeal,
+    tempResfriadoIdeal,
+    tempCongeladoCritico,
+    tempResfriadoCritico,
+    umiCongeladoIdeal,
+    umiResfriadoIdeal,
+    umiCongeladoCritico,
+    umiResfriadoCritico
 ) => {
     const app = express();
 
@@ -98,29 +158,70 @@ const servidor = (
     });
 
     // define os endpoints da API para cada tipo de sensor
-    app.get('/sensores/analogico', (_, response) => {
-        return response.json(valoresSensorAnalogico);
+    app.get('/sensores/temperaturas', (_, response) => {
+        return response.json({
+            congeladoIdeal: tempCongeladoIdeal,
+            resfriadoIdeal: tempResfriadoIdeal,
+            congeladoCritico: tempCongeladoCritico,
+            resfriadoCritico: tempResfriadoCritico
+        });
     });
-    app.get('/sensores/digital', (_, response) => {
-        return response.json(valoresSensorDigital);
+    app.get('/sensores/umidades', (_, response) => {
+        return response.json({
+            congeladoIdeal: umiCongeladoIdeal,
+            resfriadoIdeal: umiResfriadoIdeal,
+            congeladoCritico: umiCongeladoCritico,
+            resfriadoCritico: umiResfriadoCritico
+        });
     });
 }
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
     // arrays para armazenar os valores dos sensores
+
+
     const valoresSensorAnalogico = [];
     const valoresSensorDigital = [];
+
+    const tempCongeladoIdeal = [];
+    const tempResfriadoIdeal = [];
+    const tempCongeladoCritico = [];
+    const tempResfriadoCritico = [];
+
+    const umiCongeladoIdeal = [];
+    const umiResfriadoIdeal = [];
+    const umiCongeladoCritico = [];
+    const umiResfriadoCritico = [];
 
     // inicia a comunicação serial
     await serial(
         valoresSensorAnalogico,
-        valoresSensorDigital
+        valoresSensorDigital,
+        tempCongeladoIdeal,
+        tempResfriadoIdeal,
+        tempCongeladoCritico,
+        tempResfriadoCritico,
+        umiCongeladoIdeal,
+        umiResfriadoIdeal,
+        umiCongeladoCritico,
+        umiResfriadoCritico
     );
 
+
+
     // inicia o servidor web
+
     servidor(
         valoresSensorAnalogico,
-        valoresSensorDigital
+        valoresSensorDigital,
+        tempCongeladoIdeal,
+        tempResfriadoIdeal,
+        tempCongeladoCritico,
+        tempResfriadoCritico,
+        umiCongeladoIdeal,
+        umiResfriadoIdeal,
+        umiCongeladoCritico,
+        umiResfriadoCritico
     );
 })();
