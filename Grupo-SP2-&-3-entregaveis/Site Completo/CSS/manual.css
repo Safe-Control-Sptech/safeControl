@@ -18,7 +18,7 @@ padding: 0;
 }
 
 .box_grande{
-    width: 1000px;
+    width: 1150px;
     height: 820px;
 
     background-color: white;
@@ -27,7 +27,7 @@ padding: 0;
 
     position: absolute;
 
-    margin-left: 25%;
+    margin-left: 20%;
     margin-top: 2%;
 
     overflow: auto;
@@ -123,3 +123,75 @@ h1{
     font-family: Poppins;
     margin-bottom: 0px;
     }
+
+h2{
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: Poppins;
+    margin-bottom: 0px;
+}
+
+.objetos{
+    margin-top: 40px;
+    width: 95%;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sensor{
+   background-image: url(../imagens/sensor_dht11.png);
+   background-size: cover;
+   background-position: center;
+    height: 100%;
+    width: 180px;
+}
+
+.protoboard{
+    margin-left: 15px;
+    background-image: url(../imagens/protoboard.png);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 260px;
+}
+
+.jumpers{
+    background-image: url(../imagens/jumpers.png);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 120px;
+    margin-left: 15px;
+}
+
+.arduino{
+
+    background-image: url(../imagens/placa\ arduino.png);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 230px;
+
+    margin-left: 15px;
+}
+
+.usb{
+    background-image: url(../imagens/cabo_usb.png);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 190px;
+    margin-left: 30px;
+}
+
+p{
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Poppins;
+    margin-bottom: 0px;
+    position: absolute;
+}
