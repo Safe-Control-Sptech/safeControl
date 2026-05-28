@@ -6,26 +6,17 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100),
 nomeFantasia VARCHAR(100),
 apelido VARCHAR(60),
-cnpj CHAR(14) NOT NULL UNIQUE
-);
-
-CREATE TABLE cargo(
-idCargo INT PRIMARY KEY AUTO_INCREMENT, --estagiario, analistas (jr/senior) chefao
-nome VARCHAR(45)
+cnpj CHAR(14) NOT NULL UNIQUE,
+codigo_ativacao VARCHAR(50)
 );
 
 CREATE TABLE usuario(
-idUsuario INT PRIMARY KEY, --ADD pk OK
+idUsuario INT PRIMARY KEY AUTO_INCREMENT, 
 nome VARCHAR(60) NOT NULL,
 cpf CHAR(11) NOT NULL UNIQUE,
 email VARCHAR(40) NOT NULL UNIQUE,
 senha VARCHAR(30) NOT NULL,
 telefone CHAR(11) NOT NULL,
-fkCargo INT , 
-CONSTRAINT fkUsuarioCargo 	
-	FOREIGN KEY (fkCargo) 
-		REFERENCES cargo(idCargo),
---PRIMARY KEY (idUsuario,fkCargo), -- tirar pkcomposta
 fkEmpresa INT,
 CONSTRAINT fkUsuarioEmpresa 
 	FOREIGN KEY (fkEmpresa) 	
@@ -34,7 +25,6 @@ CONSTRAINT fkUsuarioEmpresa
 
 CREATE TABLE statusSensor(
 idStatus INT PRIMARY KEY AUTO_INCREMENT,
-numeroStatus CHAR(1)
 descricao varchar(100)
 );
 
@@ -43,7 +33,7 @@ idSensor INT PRIMARY KEY AUTO_INCREMENT,
 codigoRastreio VARCHAR(20) NOT NULL UNIQUE,
 fkStatus INT, 
 CONSTRAINT fkSensorStatus
-	FOREIGN KEY  (fkStatus) 
+	FOREIGN KEY (fkStatus) 
 		REFERENCES statusSensor(idStatus)
 );
 
@@ -79,7 +69,7 @@ numero INT NOT NULL,
 complemento VARCHAR(20), 
 cidade VARCHAR (30) NOT NULL, 
 UF CHAR (2) NOT NULL,
-fkEmpresa INT,
+fkEmpresa INT UNIQUE,
 CONSTRAINT fkEnderecoEmpresa
 	FOREIGN KEY (fkEmpresa) 
 		REFERENCES empresa(idEmpresa),
@@ -105,50 +95,37 @@ CONSTRAINT fkTransporteSensor
 		REFERENCES sensor(idSensor)
 );
 
-INSERT INTO empresa (razaoSocial, nomeFantasia, apelido, cnpj) VALUES
-('JBS S.A.', 'JBS', 'JBS', '12345678000101'),
-('Seara Alimentos Ltda', 'Seara', 'Seara', '12345678000102'),
-('Marfrig Global Foods S.A.', 'Marfrig', 'Marfrig', '12345678000103'),
-('Minerva S.A.', 'Minerva Foods', 'Minerva', '12345678000104'),
-('BRF S.A.', 'BRF', 'BRF', '12345678000105'),
-('Frigol S.A.', 'Frigol', 'Frigol', '12345678000106'),
-('Frisa Frigorífico Rio Doce S.A.', 'Frisa', 'Frisa', '12345678000107');
+INSERT INTO empresa (razaoSocial, nomeFantasia, apelido, cnpj, codigo_ativacao) VALUES
+('JBS S.A.', 'JBS', 'JBS', '12345678000101', 'KW52Q'),
+('Seara Alimentos Ltda', 'Seara', 'Seara', '12345678000102', 'ACY22'),
+('Marfrig Global Foods S.A.', 'Marfrig', 'Marfrig', '12345678000103', 'QW269B'),
+('Minerva S.A.', 'Minerva Foods', 'Minerva', '12345678000104', 'T36NS'),
+('BRF S.A.', 'BRF', 'BRF', '12345678000105', 'R5T3Z'),
+('Frigol S.A.', 'Frigol', 'Frigol', '12345678000106', '4WG63'),
+('Frisa Frigorífico Rio Doce S.A.', 'Frisa', 'Frisa', '12345678000107', 'SE8WE');
 
-INSERT INTO cargo (nome) VALUES
-('Administrador'),
-('Analista'),
-('Motorista'),
-('Supervisor'),
-('Gerente'),
-('Técnico'),
-('Operador');
+INSERT INTO usuario (idUsuario, nome, cpf, email, senha, telefone, fkEmpresa) VALUES
+(1, 'Arthur Balduino', '11111111101', 'arthur@email.com', '123', '11911111111', 1),
+(2, 'Bruna Martins', '11111111102', 'bruna@email.com', '123', '11922222222', 2),
+(3, 'Gabryel Moura', '11111111103', 'gabryel@email.com', '123', '11933333333',  3),
+(4, 'Leonardo Galfaro', '11111111104', 'leonardo@email.com', '123', '11944444444', 4),
+(5, 'Luiz Neto', '11111111105', 'luiz@email.com', '123', '11955555555', 5),
+(6, 'Marcela Fachim', '11111111106', 'marcela@email.com', '123', '11966666666',6),
+(7, 'Pedro Henrique', '11111111107', 'pedro@email.com', '123', '11977777777', 7);
 
-INSERT INTO usuario (idUsuario, nome, cpf, email, senha, telefone, fkCargo, fkEmpresa) VALUES
-(1, 'Arthur Balduino', '11111111101', 'arthur@email.com', '123', '11911111111', 1, 1),
-(2, 'Bruna Martins', '11111111102', 'bruna@email.com', '123', '11922222222', 2, 2),
-(3, 'Gabryel Moura', '11111111103', 'gabryel@email.com', '123', '11933333333', 3, 3),
-(4, 'Leonardo Galfaro', '11111111104', 'leonardo@email.com', '123', '11944444444', 4, 4),
-(5, 'Luiz Neto', '11111111105', 'luiz@email.com', '123', '11955555555', 5, 5),
-(6, 'Marcela Fachim', '11111111106', 'marcela@email.com', '123', '11966666666', 6, 6),
-(7, 'Pedro Henrique', '11111111107', 'pedro@email.com', '123', '11977777777', 7, 7);
-
-INSERT INTO statusSensor (numeroStatus) VALUES
-('0'),
-('1'),
-('1'),
-('1'),
-('2'),
-('1'),
-('1');
+INSERT INTO statusSensor (descricao) VALUES
+('Inoperante'),
+('Operante'),
+('Manutenção');
 
 INSERT INTO sensor (codigoRastreio, fkStatus) VALUES
 ('SEN001', 1),
 ('SEN002', 2),
 ('SEN003', 3),
-('SEN004', 4),
-('SEN005', 5),
-('SEN006', 6),
-('SEN007', 7);
+('SEN004', 1),
+('SEN005', 2),
+('SEN006', 2),
+('SEN007', 1);
 
 INSERT INTO unidadeMedida (idUnidade, simbolo) VALUES
 (1, '°C'),
@@ -190,7 +167,7 @@ INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida
 
 
 
-SELECT t.fkEmpresa , t.placa, t.origem,
+/*SELECT t.fkEmpresa , t.placa, t.origem,
  t.destino, e.nomeFantasia as empresa
  FROM transporte as t JOIN empresa as e
 	ON t.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1;
@@ -219,6 +196,9 @@ JOIN statusSensor ss ON s.fkStatus = ss.idStatus
 JOIN captura c ON c.fkSensor = s.idSensor
 JOIN unidadeMedida ut ON c.fkUnidadeTemp = ut.idUnidade
 JOIN unidadeMedida uu ON c.fkUnidadeUmi = uu.idUnidade
-WHERE e.idEmpresa=2;
+WHERE e.idEmpresa=2;*/
+
+
+
 	
     
