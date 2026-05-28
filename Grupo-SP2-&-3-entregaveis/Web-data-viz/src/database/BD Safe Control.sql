@@ -164,7 +164,16 @@ INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida
 (9,'III9I99', 'Motorista 9', 'Curitiba' , 'Porto Alegre' , '2026-04-16 09:00:00' , '2026-04-17 12:00:00' , 2,1);
 
 
-
+-- mediana da umidade
+SELECT 
+    c.fkSensor AS idSensor,
+    s.codigoRastreio,
+    MAX(c.umidade) AS maior_umidade
+FROM captura c
+JOIN sensor s ON c.fkSensor = s.idSensor
+WHERE c.umidade IS NOT NULL
+GROUP BY c.fkSensor, s.codigoRastreio
+ORDER BY maior_umidade DESC;
 
 
 /*SELECT t.fkEmpresa , t.placa, t.origem,
