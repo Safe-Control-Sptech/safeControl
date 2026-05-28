@@ -10,12 +10,12 @@ cnpj CHAR(14) NOT NULL UNIQUE
 );
 
 CREATE TABLE cargo(
-idCargo INT PRIMARY KEY AUTO_INCREMENT, 
+idCargo INT PRIMARY KEY AUTO_INCREMENT, --estagiario, analistas (jr/senior) chefao
 nome VARCHAR(45)
 );
 
 CREATE TABLE usuario(
-idUsuario INT,
+idUsuario INT PRIMARY KEY, --ADD pk OK
 nome VARCHAR(60) NOT NULL,
 cpf CHAR(11) NOT NULL UNIQUE,
 email VARCHAR(40) NOT NULL UNIQUE,
@@ -25,7 +25,7 @@ fkCargo INT ,
 CONSTRAINT fkUsuarioCargo 	
 	FOREIGN KEY (fkCargo) 
 		REFERENCES cargo(idCargo),
-PRIMARY KEY (idUsuario,fkCargo), 
+--PRIMARY KEY (idUsuario,fkCargo), -- tirar pkcomposta
 fkEmpresa INT,
 CONSTRAINT fkUsuarioEmpresa 
 	FOREIGN KEY (fkEmpresa) 	
@@ -35,6 +35,7 @@ CONSTRAINT fkUsuarioEmpresa
 CREATE TABLE statusSensor(
 idStatus INT PRIMARY KEY AUTO_INCREMENT,
 numeroStatus CHAR(1)
+descricao varchar(100)
 );
 
 CREATE TABLE sensor(
