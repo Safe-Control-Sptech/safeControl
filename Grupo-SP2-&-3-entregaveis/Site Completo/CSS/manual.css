@@ -50,7 +50,7 @@ padding: 0;
     height: 50px;
 }
 
-a{
+.bot_voltar{
     font-size: 16px;
     color: white;
     text-decoration: none;
@@ -87,7 +87,6 @@ button:hover{
 .voltar{
     width: fit-content;
     padding: 10px 20px 10px 20px;
-
     border-radius: 80px;
 
     background: #1898CF;
@@ -97,7 +96,7 @@ button:hover{
     font-size: 14px;
     font-weight: 400;
     font-family: Inter;
-
+    margin-left: 1490px;
     justify-content: center;
     align-content: center;
 
@@ -130,6 +129,14 @@ h2{
     font-weight: 600;
     font-family: Poppins;
     margin-bottom: 0px;
+}
+
+h3{
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: Poppins;
+    margin-bottom: 0px; 
 }
 
 .objetos{
@@ -194,4 +201,22 @@ p{
     font-family: Poppins;
     margin-bottom: 0px;
     position: absolute;
+}
+
+.passo1{
+    background-position: center;
+    background-size: cover;
+    margin-left:25%;
+    margin-top: 30px;
+    width: 500px;
+    height: 250px;
+}
+
+a{
+    color: rgb(3, 84, 235);
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Poppins;
+    margin-bottom: 0px;
+    position: absolute;    
 }
