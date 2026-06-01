@@ -83,23 +83,21 @@ p {
     font-family: Inter;
 }
 
-.navbar {
+nav {
     width: 650px;
-    list-style-type: none;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 a {
-    text-decoration: none;
     font-size: 15px;
     color: white;
     text-decoration: none;
 }
 
-.navbar > a:hover {
+nav>a:hover {
     text-decoration: underline;
 }
 
@@ -190,6 +188,8 @@ select:focus {
     box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
 }
 
+
+
 /* Estilização do Cabeçalho */
 .header {
     background-color: #1A3868;
@@ -209,7 +209,7 @@ select:focus {
     flex-shrink: 0;
 }
 
-.container-header{
+.header-content {
     width: 100%;
     max-width: 1200px;
 
@@ -218,20 +218,6 @@ select:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 0 16px;
-}
-
-.container-main {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
 
     padding: 0 16px;
 }
@@ -265,7 +251,7 @@ select:focus {
     justify-content: flex-start;
     align-items: center;
 
-    background-image: url('../assets/imagens/Banner.jpg');
+    background-image: url('../imagens/Banner.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -284,10 +270,13 @@ select:focus {
 .container {
     width: 100%;
     max-width: 1200px;
+
     margin: 0 auto;
+
     padding: 0 16px;
     box-sizing: border-box;
 }
+
 
 /* Estilização da Sessão Quem Somos */
 .quem-somos {
@@ -482,6 +471,7 @@ select:focus {
 }
 
 .card-Resultado {
+
     background-color: #081B31;
     border-radius: 8px;
 
