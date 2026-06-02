@@ -1,201 +1,362 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-html,body{
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
 }
 
-body{
-    font-family: Inter;
-    overflow: hidden;
-
-    background-image: url("./../assets/imagens/BG_LoginCadastro.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+:root {
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
 }
 
-/* Estilização do Cabeçalho */
-.header{
-    background-color: #1A3868;
-    height: 80px;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    border-bottom: 2px solid rgba(0, 0, 0, 0.486);
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
 }
 
-.img-logo{
-    height: 50px;
+.header {
+  height: var(--tamanho-header);
+  border-bottom: 2px solid #32b9cd;
 }
 
-a{
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-.texto-botao{
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Inter;
-    color: rgb(0, 132, 255);
-    text-decoration: none;
-    padding: 10px 140px;
+.header a {
+  text-decoration: none;
+  color: #e3b062;
 }
 
-.texto-botao:hover{
-    color: white;
+.agora {
+  font-weight: 800;
 }
 
-.logo{
-    height: auto;
-    width: 300px;
-    text-align: center;
-    margin-right: 50px;
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #e3b062;
 }
 
-
-
-.voltar{
-    width: fit-content;
-    padding: 10px 20px 10px 20px;
-
-    border-radius: 80px;
-
-    background: #1898CF;
-
-    border: 0px #0D4D69;
-
-    font-size: 14px;
-    font-weight: 400;
-    font-family: Inter;
-
-    justify-content: center;
-    align-content: center;
-
-    cursor: pointer;
-    transition: 0.3s;
+.titulo {
+  color: #32b9cd;
+  width: fit-content;
+  font-weight: 500;
 }
 
-.voltar:hover{
-    background-color: #4ac2f5;
-    transform: scale(1.05);
+.header h1 {
+  margin: 0;
 }
 
+/* BANNER */
 
-/* Estilização do Conteúdo Principal */
-.main{
-    height: 100%;
-    width: 100%;
-
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.banner {
+  height: var(--tamanho-banner);
+  color: white;
+  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-size: cover;
 }
 
-.formulario{
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.banner .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-h2{
-    font-size: 32px;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
+.banner .container p {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
 }
 
-.form{
-    background-color: white;
-    width: 450px;
-    padding: 32px 16px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    gap: 16px;
-
-    align-items: center;
-
-    border-radius: 36px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.237);
+.banner .container span {
+  font-weight: 800;
 }
 
-.form-inputs{
-    width: 85%;
+/* MISSÃO VISÃO VALORES */
+
+.social {
+  background-color: #e5e5e5;
+  display: flex;
 }
 
-h3{
-    margin: 5px;
+.social .container {
+  justify-content: center;
 }
 
-input{
-    width: 100%;
-    height: 40px;
-    padding: 8px 16px;
-
-    border-radius: 24px;
-    border: 1px solid #888;
-
-    box-sizing: border-box;
-
-    background: #fdfdfd;
-
-    font-size: 14px;
-    font-family: Inter;
-
-    outline: none;
-    transition: all 0.25s ease;
+.box img {
+  width: 170px;
 }
 
-.entrar{
-    width: 85%;
-    padding: 10px 20px 10px 20px;
-
-    border-radius: 80px;
-
-    font-size: 14px;
-    font-weight: 400;
-    font-family: Inter;
-
-    justify-content: center;
-    align-content: center;
-
-    cursor: pointer;
-    transition: 0.3s;
-    
-    color: white;
-    background-color: white;
-    border: 2px solid rgb(0, 132, 255);
+.social .container .boxes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
 }
 
-.entrar:hover{
-    color: white;
-    background-color: rgb(0, 132, 255);
+.social p {
+  text-align: center;
 }
 
-.link-entrar{
-    font-size: 16px;
-    font-weight: bold;
-    color: rgb(0, 132, 255);
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.link-entrar:hover{
-    color: #4ac2f5;
+/* FOOTER */
+
+.footer {
+  background-color: #32b9cd;
+  height: 150px;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
 }
 
+.footer .container {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer .container .version {
+  font-size: 12px;
+}
+
+/* LOGIN */
+
+.login {
+  height: var(--tamanho-login);
+  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-size: cover;
+}
+
+.login .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  width: 50%;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: palevioletred;
+  flex-direction: column;
+  height: fit-content;
+  padding: 20px 0;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.formulario {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.formulario span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.formulario input {
+  border: 2px solid #32b9cd;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.formulario select {
+  border: 2px solid #32b9cd;
+  background-color: white;
+  color: gray;
+  height: 36px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 5px 0;
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: #ED145B;
+  width: 120px;
+  height: 30px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+/* FORMULARIO */
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.formulario .tipo_campo {
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #32b9cd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #ED145B;
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+/* SIMULADOR */
+
+.simulador {
+  color: white;
+}
+
+.simulador .container {
+  flex-direction: column;
+  overflow: scroll; 
+  height: var(--tamanho-simulador);
+}
+
+/* ALERTA */
+
+#alerta {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.mensagem-alarme {
+  background-color: white;
+  border-radius: 5px;
+  width: 300px;
+  height: 80px;
+  margin: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mensagem-alarme h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.mensagem-alarme .informacao {
+  width: 66%;
+}
+
+.alarme-sino {
+  width: 48px;
+  height: 48px;
+  animation-name: bell;
+  animation-duration: 4s;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
+  background-size: cover;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bell {
+  0%   {transform: rotate(25deg)}
+  25%  {transform: rotate(-25deg)}
+  50%  {transform: rotate(25deg)}
+  75%  {transform: rotate(-25deg)}
+  100% {transform: rotate(25deg)}
+}
