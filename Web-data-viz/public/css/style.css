@@ -251,7 +251,7 @@ select:focus {
     justify-content: flex-start;
     align-items: center;
 
-    background-image: url('../imagens/Banner.jpg');
+    background-image: url('../assets/imagens/Banner.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -359,7 +359,8 @@ select:focus {
 .calculadora {
     background-color: #1A3868;
     height: auto;
-    width: 100%;
+    width: 90%;
+    margin: 60px;
     padding: 32px;
     border-radius: 24px;
 
