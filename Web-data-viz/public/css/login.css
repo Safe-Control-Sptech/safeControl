@@ -42,6 +42,7 @@ a{
   font-family: Inter;
   color: rgb(0, 132, 255);
   text-decoration: none;
+  padding: 10px 150px;
 }
 
 .texto-botao:hover{
@@ -191,6 +192,19 @@ input{
     background-color: rgb(0, 132, 255);
 }
 
+.link-entrar{
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 132, 255);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.link-entrar:hover{
+    color: #4ac2f5;
+}
+
+
 .loading-div {
   width: 50px;
   display: none;
@@ -236,14 +250,6 @@ input{
 .formulario {
   display: flex;
   flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
 }
 
 .btn {
