@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
+  background-color: url('./../assets/imagens/BG_LoginCadastro.jpg');
 }
 
 :root {
@@ -23,7 +24,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  border-bottom: 2px solid white;
 }
 
 .header .container {
@@ -138,7 +139,6 @@ body {
 }
 
 /* LOGIN */
-
 .login {
   height: var(--tamanho-login);
   background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
