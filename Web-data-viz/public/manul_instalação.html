@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="css/manual.css">
 </head>
 <body>
-    <div class="header">
+    <div class="menu-lateral">
+
+        <a href="./dashboard.html">
+            <img class="img-logo" src="../assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
+        </a>
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
+        </div>
+
+        <button id="btn-ativo" class="button-menu" onclick="mostrar_visao_geral()">Visão Geral</button>
+
+        <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
+        
+        <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
+        
+        <button class="btn-login" onclick="sair()"> Sair </button>
+    </div>
+
+    <!-- <div class="header">
         <div class="logo">
             <img class="img-logo" src="assets/logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da Safe Control">
         </div>
         
         <a class="link-voltar" href="./index.html"></aclass><button class="voltar"> Voltar</button></a>
-    </div>
+    </div> -->
+
+
     <div class="fundo">
     <div class="box_grande">
             <div class="txt">

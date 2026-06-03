@@ -15,24 +15,206 @@ body{
     background-repeat: no-repeat;
 }
 
-.box_grande{
-    width: 1150px;
-    height: 820px;
+/* Estilo Cabecalho */
+button {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
 
+    border-radius: 80px;
+
+    background: #1A3868;
+    color: #ffffff;
+
+    border: 0px #0D4D69;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0498ce   ;
+}
+
+button:focus {
+    background-color: #0498ce   ;
+}
+
+.btn-login {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background-color: transparent !important;
+
+    color: #ffffff;
+
+    border: 1px solid #888 !important;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+button {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background: #1A3868;
+    color: #ffffff;
+
+    border: 0px #0D4D69;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #ff0000 !important;
+    border: 1px solid #ff0000 !important;
+    transform: scale(1.05);
+}
+
+.button_dash {
+    width: fit-content;
+    padding: 8px 16px 8px 16px;
+
+    border-radius: 20px;
+    border: 1px solid #dddddd;
+
+    background: #fdfdfd;
+    color: #606060;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Inter;
+
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.button_dash:hover {
+    border: 1px solid #1A3868;
+    background: #1A3868;
+    color: white;
+
+}
+
+.button_dash:focus {
+    outline: none;
+    border-color: #888;
+    border: 1px solid #888;
+    background: #1A3868;
+
+    color: rgb(255, 255, 255);
+}
+
+.button-sair:hover {
+    border: 1px solid #d43737;
+    background: #ff0000;
+    color: rgb(255, 255, 255);
+}
+
+.menu-lateral {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 20%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background: linear-gradient(#051b32, #051b32);
+    border-right: 4px solid #0498ce;
+
+    z-index: 100;
+}
+
+.img-logo {
+    width: 100%;
+    height: 100px;
+    padding: 0px 12px;
+    max-width: 280px;
+    object-fit: cover;
+}
+
+.perfil {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background: #bbbdbf;
+
+    border: 0px #0D4D69;
+
+    font-size: 25px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+/* Estilização da Imagem da Logo */
+.img_logo {
+    width: 250px;
+    transition: all 0.3s ease-in-out;
+}
+
+.img_logo:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo do Conteudo Principal */
+.fundo{
+    width: 80%;
+    height: 100%;
+}
+
+.box_grande{
+    width: 70%;
+    height: 80%;
+    margin-top: 5%;
+    margin-left: 25%;
     background-color: white;
 
     border-radius: 40px;
-
     position: absolute;
-
-    margin-left: 20%;
-    margin-top: 2%;
-
     overflow: auto;
     scrollbar-width: none;
 }
 
-.header{
+/* .header{
     background-color: #1A3868;
     height: 80px;
     width: 100%;
@@ -42,7 +224,7 @@ body{
     align-items: center;
 
     border-bottom: 2px solid rgba(0, 0, 0, 0.486);
-}
+} */
 
 .img-logo{
     height: 50px;
@@ -73,14 +255,14 @@ a{
     margin-right: 50px;
 }
 
-button{
+/* button{
     border: 0px solid #dddddd;
-}
-
+} 
 
 button:hover{
     border: 1px solid #1A3868;
 }
+*/
 
 .voltar{
     width: fit-content;
