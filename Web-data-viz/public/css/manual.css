@@ -213,7 +213,8 @@ a{
     margin-bottom: 0px;
     position: absolute;}
 
-button a{
+a button{
      color: rgb(255, 255, 255);
     font-family: Poppins;
+    margin-left: 1100px;
     }
