@@ -8,7 +8,7 @@ padding: 0;
 
 .fundo{
 
-    background-image: url(../imagens/BG_LoginCadastro.jpg);
+    background-image: url(../assets/imagens/BG_LoginCadastro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -143,7 +143,7 @@ h2{
 }
 
 .sensor{
-   background-image: url(../imagens/sensor_dht11.png);
+   background-image: url(../assets/imagens/sensor_dht11.png);
    background-size: cover;
    background-position: center;
     height: 100%;
@@ -152,7 +152,7 @@ h2{
 
 .protoboard{
     margin-left: 15px;
-    background-image: url(../imagens/protoboard.png);
+    background-image: url(../assets/imagens/protoboard.png);
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -160,7 +160,7 @@ h2{
 }
 
 .jumpers{
-    background-image: url(../imagens/jumpers.png);
+    background-image: url(../assets/imagens/jumpers.png);
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -170,7 +170,7 @@ h2{
 
 .arduino{
 
-    background-image: url(../imagens/placa\ arduino.png);
+    background-image: url(../assets/imagens/placa\ arduino.png);
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -180,7 +180,7 @@ h2{
 }
 
 .usb{
-    background-image: url(../imagens/cabo_usb.png);
+    background-image: url(../assets/imagens/cabo_usb.png);
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -195,3 +195,25 @@ p{
     margin-bottom: 0px;
     position: absolute;
 }
+
+.passo1{
+    background-position: center;
+    background-size: cover;
+    margin-left:25%;
+    margin-top: 30px;
+    width: 500px;
+    height: 250px;
+}
+
+a{
+    color: rgb(3, 84, 235);
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Poppins;
+    margin-bottom: 0px;
+    position: absolute;}
+
+button a{
+     color: rgb(255, 255, 255);
+    font-family: Poppins;
+    }
