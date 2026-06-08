@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo/Simbolo_SafeControl.png" type="image/x-icon">
 
-    
+
     <script src="./js/sessao.js"></script>
-    
+
     <link rel="stylesheet" href="./css/style.css">
-    
+
     <link rel="icon" href="./assets/logo/Logo_SafeControl.jpg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <title>Safe Control | Home</title>
@@ -21,9 +22,10 @@
         <div class="header-content">
 
             <a href="#banner">
-                <img class="img_logo" src="./assets/logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da SafeControl">
+                <img class="img_logo" src="./assets/logo/Logo_SafeControl_Horizontal.png"
+                    alt="Imagem da Logo da SafeControl">
             </a>
-            
+
             <nav>
                 <a href="#quem_somos">Quem Somos</a>
                 <a href="#tecnologia">Tecnologia</a>
@@ -34,7 +36,7 @@
             </nav>
         </div>
     </header>
-  
+
     <!-- Banner Hero -->
     <div class="banner" id="banner">
         <div class="container">
@@ -48,17 +50,17 @@
                     de temperatura e umidade em tempo real. Preserve a qualidade do produto e garanta conformidade em
                     toda a operação logistica.
                 </p>
-                
+
                 <a href="#footer">
                     <button> ENTRE EM CONTATO</button>
                 </a>
             </div>
         </div>
     </div>
-  
+
     <!-- Tag Main para controlar o corpo do HTML (container) -->
     <main class="container-main">
-      
+
         <!-- Card Quem Somos -->
         <div class="quem-somos" id="quem_somos">
             <img style="width: 500px;" src="./assets/imagens/desenho_Caminhao.PNG" alt="Imagem de um Caminhão">
@@ -111,11 +113,15 @@
                     <br>Os dados são em um dashboard com alertas e análises, permitindo agir rapidamente para
                     evitar perdas, manter o padrão de qualidade e garantir a integridade da carga.
                 </p>
+                <div class="btn-solucao">
 
-                <button><a href="#footer">ENTRE EM CONTATO</a></button>
+                    <button>ENTRE EM CONTATO</button>
+                    <button class="botao" onclick="window.location.href='./manul_instalação.html'">MANUAL DE INSTALAÇÃO</button>
+                </div>
             </div>
 
-            <img style="width: 600px;" src="./assets/imagens/desenho_Monitoramento.PNG" alt="Imagem de um celular realizando um monitoriamento">
+            <img style="width: 600px;" src="./assets/imagens/desenho_Monitoramento.PNG"
+                alt="Imagem de um celular realizando um monitoriamento">
         </div>
 
         <!-- Card Calculadora -->
@@ -171,12 +177,14 @@
                         <div class="div-radio">
 
                             <label class="radio-item">
-                                <input class="input-radio" name="Tipo" type="radio" id="rad_congelada" onclick="tipodecarga()">
+                                <input class="input-radio" name="Tipo" type="radio" id="rad_congelada"
+                                    onclick="tipodecarga()">
                                 <span>Congelada</span>
                             </label>
-                            
+
                             <label class="radio-item">
-                                <input class="input-radio" name="Tipo" type="radio" id="rad_resfriada" onclick="tipodecarga()">
+                                <input class="input-radio" name="Tipo" type="radio" id="rad_resfriada"
+                                    onclick="tipodecarga()">
                                 <span>Resfriada</span>
                             </label>
                         </div>
@@ -214,12 +222,38 @@
                 </div>
             </div>
         </div>
-    </main>  
-  
+
+        <section class="faq">
+            <h2>Perguntas Frequentes</h2>
+
+            <details>
+                <summary>Como é feita a manutenção e calibração dos sensores da SafeControl?</summary>
+                <p>Para garantir a máxima precisão, nossa equipe realiza vistorias e substituições preventivas programadas nos dispositivos de telemetria, mitigando qualquer risco de falha por desgaste natural.</p>
+            </details>
+
+            <details>
+                <summary>O que acontece se o caminhão passar por uma área sem sinal de internet?</summary>
+                <p>O sistema possui tecnologia de contingência offline. Os dados de temperatura, umidade e localização continuam sendo gravados localmente e são transmitidos de forma automática assim que o sinal for restabelecido.</p>
+            </details>
+
+            <details>
+                <summary>Quem tem autorização para visualizar os dados das minhas cargas?</summary>
+                <p>O acesso ao painel de controle é restrito e protegido por criptografia avançada. O gestor da frota pode definir diferentes níveis de permissão para cada usuário, garantindo que dados sensíveis não sejam expostos.</p>
+            </details>
+
+            <details>
+                <summary>Como o sistema detecta se o sensor for removido ou violado propositalmente?</summary>
+                <p>Nossos equipamentos possuem travas físicas, lacres de segurança e sensores antifraude. Qualquer tentativa de movimentação indevida ou desligamento do hardware dispara um alerta crítico imediato na central.</p>
+            </details>
+            <button onclick="window.location.href='./faq.html'"> Veja mais perguntas</button>
+        </section>
+    </main>
+
     <footer id="footer" class="footer">
         <div class="footer-content">
             <div class="contato">
-                <img style="width: 250px;" src="./assets/logo/Logo_SafeControl_Vertical.png" alt="Imagem da Logo da SafeControl">
+                <img style="width: 250px;" src="./assets/logo/Logo_SafeControl_Vertical.png"
+                    alt="Imagem da Logo da SafeControl">
 
                 <div class="tipos-Contato">
                     <h2>Entre em Contato</h2>
@@ -245,5 +279,5 @@
 
         <p style="font-size: 11px;">SafeControl - Sensores Automatizados ©2026 Todos os Direitos Reservados</p>
     </footer>
-  </body>
+</body>
 </html>

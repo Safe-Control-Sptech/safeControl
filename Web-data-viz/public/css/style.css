@@ -1,5 +1,6 @@
 /* Link do Google Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -240,6 +241,16 @@ select:focus {
 
     display: flex;
     flex-direction: column;
+}
+
+.container-main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* Estilização do Banner */
@@ -523,4 +534,74 @@ select:focus {
 
 ul {
     list-style-type: none;
+}
+
+.faq {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    gap: 16px;
+    margin-bottom: 120px;
+}
+
+.faq h2 {
+    margin-top: 0px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.faq details {
+    border: 1px solid #1898CF;
+    border-radius: 36px;
+    margin-bottom: 10px;
+    padding: 16px;
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-family: Inter;
+}
+
+.faq p {
+    margin-top: 12px;
+    margin-left: 50px;
+    line-height: 1.5;
+}
+
+.faq button {
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+}
+
+.botao {
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Inter;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+    
+    color: rgb(0, 132, 255);
+    background-color: #EDEDF1;
+    border: 2px solid rgb(0, 132, 255);
+}
+
+.botao:hover{
+    color: white;
+    background-color: rgb(0, 132, 255);
+}
+
+.btn-solucao{
+    display: flex;
+    gap: 8px;
 }
