@@ -105,9 +105,16 @@
                     sessionStorage.ID_USUARIO = json.id;
                     //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
+                    if (emailVar == 'suporte@safe.com' && senha == 'suporten3'){
+                        setTimeout(function () {
+                        window.location = "./manual_instalação.html";
+                    }, 1000);
+                    }
+                    else{
+
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";
-                    }, 1000);
+                    }, 1000);}
 
                 });
 

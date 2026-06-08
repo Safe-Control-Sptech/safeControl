@@ -9,15 +9,22 @@
 
 </head>
 <body>
-<!-- 
-        
-    -->
-    <div class="header">
-        <div class="logo">
-          <img class="img-logo" src="imagens/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da Safe Control">
-        </div>  
+
+     <div class="menu-lateral">
+       
+            <img class="img-logo" src="../../Web-data-viz/public/assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
+       
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">Suporte</span>!</h6>
+        </div>
+
+        <button id="btn-ativo" class="button-menu" >Bob IA</button>
+       <a href="../../Web-data-viz/public/manul_instalação.html"> <button class="button-menu">Manual de instalação</button></a>
+        <a href="../../Web-data-viz/public/index.html"><button class="btn-login" onclick="sair()">Sair </button></a>
+
     </div>
-    <div class="fundo">
+    <div class="fundo_direita">
         <div class="box_grande">
             <div class="ia"><i>Bob ia</i></div>
             <div class="bob">
@@ -25,14 +32,13 @@
                 <div id="resposta" class="bob, resposta" style="margin-top: 20px; margin-left: 100px; "></div>
             </div>
             
-            <button onclick="gerarResposta()"></button>
+            <button class="button_enviar" onclick="gerarResposta()"></button>
            <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
             
           
         </div>
-    </div>
 
-   
+   </div>
 
     <script>
         

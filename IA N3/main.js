@@ -2,6 +2,9 @@
 const { GoogleGenAI } = require("@google/genai");
 const express = require("express");
 const path = require("path");
+require('dotenv').config(); // <-- Precisa ser a primeira linha do arquivo!
+
+// O resto do seu código vem abaixo...
 
 // carregando as variáveis de ambiente do projeto do arquivo .env
 require("dotenv").config();
