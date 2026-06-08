@@ -9,7 +9,7 @@ html,body{
 
 body{
     font-family: Inter;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     background-image: url("../assets/imagens/BG_LoginCadastro.jpg");
     background-size: cover;

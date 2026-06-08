@@ -12,7 +12,7 @@
     <title>SafeControl | Cadastro</title>
 </head>
 
-<body>
+<body onload="listar()">
   <div class="header">
     <div class="logo">
       <img class="img-logo" src="assets/logo/Logo_SafeControl_Horizontal - cópia.png" alt="Imagem da Logo da Safe Control">
@@ -83,16 +83,7 @@
 </html>
 <script>
  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [ 
-  {
-        id: 1,
-        razao_social: "JBS S.A",
-        nome_fantasia: "JBS",
-        apelido: "JBS",
-        cnpj: "12345678000101",
-        codigo_ativacao: "KW52Q"
-    }
-  ];
+  let listaEmpresasCadastradas = [];
 
   function cadastrar() {
     // aguardar();
@@ -129,9 +120,10 @@
     }
 
     //Verificando se o código de ativação é de alguma empresa cadastrada
+    console.log(`Quantidade de empresas no vetor ${listaEmpresasCadastradas.length}`)
     for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
       if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        idEmpresaVincular = listaEmpresasCadastradas[i].idEmpresa
         console.log("Código de ativação válido.");
         break;
       } else {
@@ -153,10 +145,10 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        cpfServer: cpfVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
         telefoneServer: telefoneVar,
-        cpfServer: cpfVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
     })
