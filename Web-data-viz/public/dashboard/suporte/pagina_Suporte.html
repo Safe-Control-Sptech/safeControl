@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeControl | Suporte</title>
+
+    <link rel="stylesheet" href="./../../css/suporte.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Menu fixo de navegação -->
+    <div class="menu-lateral">
+        <a href="./dashboard.html">
+            <img class="img-logo" src="./../../assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
+        </a>
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
+        </div>
+
+        <button id="btn-ativo"  class="button-menu" onclick="mostrar_manual()">Visão Geral</button>
+
+        <button  class="button-menu" onclick="mostrar_manual()">Manual de Instalação</button>
+
+        <button class="button-menu" onclick="mostrar_bob()">Bob IA</button>
+        
+        <button class="btn-login" onclick="sair()">Sair</button>
+    </div>
+
+    <div class="container-main">
+        <!-- Div da visão geral -->
+        <div id="div_visao_geral">
+
+        </div>
+
+        
+    </div>
+</body>
+</html>
+
+<script>
+    function mostrar_manual(){
+        window.location = "./../../manul_instalação.html";
+    }
+</script>
