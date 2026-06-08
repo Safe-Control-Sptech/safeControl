@@ -9,21 +9,19 @@
 
 </head>
 <body>
-
      <div class="menu-lateral">
-       
-            <img class="img-logo" src="../../Web-data-viz/public/assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
-       
+        <img class="img-logo" src="imagens/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
 
-        <div class="perfil">
-            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">Suporte</span>!</h6>
-        </div>
+        <button class="button-menu" onclick="visao()">Visão Geral</button>
 
         <button id="btn-ativo" class="button-menu" >Bob IA</button>
-       <a href="../../Web-data-viz/public/manul_instalação.html"> <button class="button-menu">Manual de instalação</button></a>
-        <a href="../../Web-data-viz/public/index.html"><button class="btn-login" onclick="sair()">Sair </button></a>
+
+       <button class="button-menu" onclick="manual()">Manual de instalação</button>
+
+        <button class="btn-login" onclick="sair()">Sair </button>
 
     </div>
+    
     <div class="fundo_direita">
         <div class="box_grande">
             <div class="ia"><i>Bob ia</i></div>
@@ -41,6 +39,21 @@
    </div>
 
     <script>
+
+        function manual(){
+         window.location.href = "http://localhost:3333/manul_instala%C3%A7%C3%A3o.html" ;
+
+        }
+
+         function visao(){
+         window.location.href = "http://127.0.0.1:5500/Web-data-viz/public/dashboard/suporte/pagina_Suporte.html" ;
+
+        }
+
+        function sair(){
+         window.location.href = "http://localhost:3333/index.html" ;
+
+        }
         
         async function gerarResposta() {
             const pergunta = document.getElementById('pergunta').value;

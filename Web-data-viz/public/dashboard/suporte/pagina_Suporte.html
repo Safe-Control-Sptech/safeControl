@@ -19,11 +19,7 @@
         <a href="./dashboard.html">
             <img class="img-logo" src="./../../assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
         </a>
-
-        <div class="perfil">
-            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
-        </div>
-
+        
         <button id="btn-ativo"  class="button-menu" onclick="mostrar_manual()">Visão Geral</button>
 
         <button  class="button-menu" onclick="mostrar_manual()">Manual de Instalação</button>
@@ -34,12 +30,15 @@
     </div>
 
     <div class="container-main">
-        <!-- Div da visão geral -->
+        <!-- Div Banner -->
         <div id="div_visao_geral">
+        </div>        
 
+        <div id="texto-main">
+            <h1>Olá Suporte!</h1>
+
+            <p>Estamos aqui para te ajudar a manter o monitoramento dos sensores dos seus frigorificos sempre seguro e eficiente.</p>
         </div>
-
-        
     </div>
 </body>
 </html>
@@ -48,4 +47,13 @@
     function mostrar_manual(){
         window.location = "./../../manul_instalação.html";
     }
+
+    function mostrar_bob(){
+      window.location.href = "http://localhost:3000/" ;
+    }
+
+     function sair(){
+         window.location.href = "http://localhost:3333/index.html" ;
+
+        }
 </script>

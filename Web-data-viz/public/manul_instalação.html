@@ -10,15 +10,9 @@
 </head>
 <body>
     <div class="menu-lateral">
-        <a href="./dashboard.html">
-            <img class="img-logo" src="../assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
-        </a>
+        <img class="img-logo" src="./assets/logo/Logo_SafeControl_Vertical.png" alt="Logo SafeControl">
 
-        <div class="perfil">
-            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
-        </div>
-
-        <button class="button-menu" onclick="mostrar_manual()">Visão Geral</button>
+         <button class="button-menu" onclick="visao()">Visão Geral</button>
 
         <button id="btn-ativo" class="button-menu" onclick="mostrar_manual()">Manual de Instalação</button>
 
@@ -70,8 +64,20 @@
 
     </div>
             </div>
-
     </div>
     </div>
 </body>
 </html>
+<script>
+    function visao(){
+    window.location = "dashboard/suporte/pagina_suporte.html";
+    }
+
+    function mostrar_bob(){
+      window.location.href = "http://localhost:3000/" ;
+    }
+
+    function sair(){
+         window.location.href = "http://localhost:3333/index.html" ;
+        }
+</script>
