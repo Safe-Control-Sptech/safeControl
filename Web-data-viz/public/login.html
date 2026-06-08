@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo/Simbolo_SafeControl.png" type="image/x-icon">
 
     <title>SafeControl | Login</title>
 
@@ -104,18 +105,18 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
                     //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    if (emailVar == 'suporte@safe.com' && senha == 'suporten3'){
+                    
+                    if(emailVar == 'suporte@safe.com' && senhaVar == 'suporten3'){
                         setTimeout(function () {
-                        window.location = "./manual_instalação.html";
+                        window.location = "manul_instalação.html";
                     }, 1000);
                     }
+
                     else{
-
-                    setTimeout(function () {
-                        window.location = "./dashboard/dashboard.html";
-                    }, 1000);}
-
+                        setTimeout(function () {
+                            window.location = "./dashboard/dashboard.html";
+                        }, 1000);
+                    }
                 });
 
             } else {

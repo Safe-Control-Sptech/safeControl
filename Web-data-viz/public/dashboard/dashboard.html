@@ -27,10 +27,12 @@
         </div>
 
         <button id="btn-ativo" class="button-menu" onclick="mostrar_visao_geral()">Visão Geral</button>
-        <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
-        <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
-        <button class="btn-login" onclick="sair()"> Sair </button>
 
+        <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
+        
+        <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
+        
+        <button class="btn-login" onclick="sair()"> Sair </button>
     </div>
 
     <div class="container-main">
@@ -222,11 +224,9 @@
         </div>
     </div>
 </body>
-
 </html>
 
 <script>
-
     // CHAMADAS DOS ELEMENTOS PRESENTES NO CORPO DO HTML E CONFIG DE VARIÁVEIS DAS KPIs
     const temperatura = document.getElementById("temperatura");
     const umidade = document.getElementById("umidade");
