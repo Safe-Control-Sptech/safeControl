@@ -1,61 +1,108 @@
 var medidaModel = require("../models/medidaModel");
 
-function UmidadeSensorSelecionado(req, res) {
+function buscarTemperatura(req, res) {
+    var idSensor = req.params.idSensor;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.UmidadeSensorSelecionado().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+    medidaModel.buscarTemperatura(idSensor)
+        .then(resultado => res.json(resultado))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
+function buscarUmidade(req, res) {
+    var idSensor = req.params.idSensor;
 
-function CapturaSensor(req, res) {
-
-
-    console.log(`Recuperando medidas em tempo real`);
-
-    medidaModel.CapturaSensor().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+    medidaModel.buscarUmidade(idSensor)
+        .then(resultado => res.json(resultado))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
-function EstadoSensor(req, res) {
+function buscarKpis(req, res) {
+    medidaModel.buscarKpis()
+        .then(resultado => res.json(resultado))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
+function buscarDataMaiorTemp(req, res) {
 
-    console.log(`Recuperando estado do sensor`);
+    medidaModel.buscarDataMaiorTemp()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
 
-    medidaModel.EstadoSensor().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+}
+
+function buscarDataMaiorUmi(req, res) {
+
+    medidaModel.buscarDataMaiorUmi()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+
+}
+
+function buscarSensores(req, res) {
+
+    medidaModel.buscarSensores()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+
+}
+
+function buscarAlertas(req, res) {
+
+    medidaModel.buscarAlertas()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+
+}
+
+function buscarSensores(req, res) {
+
+    medidaModel.buscarSensores()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+
 }
 
 module.exports = {
-    UmidadeSensorSelecionado,
-    CapturaSensor,
-    EstadoSensor
+    buscarTemperatura,
+    buscarUmidade,
+    buscarKpis,
+    buscarDataMaiorTemp,
+    buscarDataMaiorUmi,
+    buscarSensores,
+    buscarAlertas,
+    buscarSensores
 }

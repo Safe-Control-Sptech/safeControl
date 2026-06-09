@@ -14,7 +14,7 @@
 
 </head>
 
-<body onload="ativarButtons()">
+<body>
     <!-- Menu fixo de navegação -->
 
     <div class="menu-lateral">
@@ -29,7 +29,7 @@
 
         <button id="btn-ativo" class="button-menu" onclick="mostrar_visao_geral()">Visão Geral</button>
 
-        <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
+        <button class="button-menu ativo" onclick="mostrar_sensor()">Sensores</button>
 
         <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
 
@@ -44,46 +44,14 @@
                 <p>Confira com detalhes os seus sensores!</p>
             </div>
             <!-- DIV das KPIS -->
-            <div class="container div_body">
-                <!-- KPI Sensor 1 -->
-                <div class="kpi-card">
-                    <div class="kpi-info" id="kpi_sensor_1">
-                        <span class="kpi-title">Escolha o sensor</span>
-                        <h2 class="kpi-value"> Sensor 1</h2>
-                        <span class="kpi-change positivo">Sensor ativo</span>
-                    </div>
-                </div>
-                <!-- KPI Sensor 2 -->
-                <div class="kpi-card">
-                    <div class="kpi-info" id="kpi_sensor_2">
-                        <span class="kpi-title">Escolha o sensor</span>
-                        <h2 class="kpi-value"> Sensor 2</h2>
-                        <span class="kpi-change positivo">Sensor ativo</span>
-                    </div>
-                </div>
-                <!-- KPI Sensor 3 -->
-                <div class="kpi-card negativo">
-                    <div class="kpi-info">
-                        <span class="kpi-title">Escolha o sensor</span>
-                        <h2 class="kpi-value"> Sensor 3</h2>
-                        <span class="kpi-change negativo">Sensor desativado</span>
-                    </div>
-                </div>
-                <!-- KPI Sensor 4 -->
-                <div class="kpi-card negativo">
-                    <div class="kpi-info">
-                        <span class="kpi-title">Escolha o sensor</span>
-                        <h2 class="kpi-value"> Sensor 4</h2>
-                        <span class="kpi-change negativo">Sensor desativado</span>
-                    </div>
-                </div>
+            <div class="container div_body" id="div_cards_sensores">
             </div>
             <!-- Barra de navegação entre tabelas -->
             <div class="container">
                 <div class="agrupar" id="sensor_1">
                     <button class="button_dash" id="sensor_temp2" onclick="ocultar_umid2()"><b>Gráfico
                             Temperatura</b></button>
-                    <button class="button_dash" id="sensor_umid" onclick="ocultar_temp2()"><b>Gráfico
+                    <button class="button_dash" id="sensor_umid2" onclick="ocultar_temp2()"><b>Gráfico
                             Umidade</b></button>
                 </div>
             </div>
@@ -102,55 +70,6 @@
 
             </div>
         </div>
-
-        <!-- Div da página de perfil -->
-        <div id="div_perfil">
-            <div class="container div_texto">
-                <h1>Perfil</h1>
-                <p>Confira os seus dados cadastrados!</p>
-            </div>
-
-            <div class="container card-cliente">
-                <!-- TOPO COM FOTO -->
-                <div class="card-header">
-                    <div class="foto-perfil">
-                        <img src="./imagens/icone_perfil.png" alt="Foto do cliente">
-                    </div>
-                </div>
-
-                <!-- DADOS -->
-                <div class="campo">
-                    <label>Nome Completo</label>
-                    <input type="text" value="Carlos Eduardo Martins">
-                </div>
-
-                <div class="campo">
-                    <label>Email</label>
-                    <input type="email" value="carlos.martins@safecontrol.com">
-                </div>
-
-                <div class="campo">
-                    <label>CPF</label>
-                    <input type="text" value="527.894.163-08">
-                </div>
-
-                <div class="campo">
-                    <label>Telefone</label>
-                    <input type="text" value="(11) 98765-4321">
-                </div>
-
-                <div class="campo">
-                    <label>Empresa</label>
-                    <input type="text" value="SafeControl LTDA">
-                </div>
-
-                <!-- BOTÕES -->
-                <div class="card-footer">
-                    <button class="btn-editar" onclick="habilitarEdicao()">Alterar Dados</button>
-                    <button class="btn-salvar" onclick="salvarEdicao()">Salvar Alterações</button>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 
@@ -158,45 +77,95 @@
 
 <script>
 
+    let sensorSelecionado = 1;
+
+
+    function buscarSensores() {
+
+        const div_cards_sensores = document.getElementById("div_cards_sensores");
+
+        console.log("ENTROU NA FUNÇÃO");
+
+        fetch("/medidas/sensores")
+            .then(resposta => resposta.json())
+            .then(dados => {
+
+                div_cards_sensores.innerHTML = "";
+
+                dados.forEach(sensor => {
+
+                    div_cards_sensores.innerHTML += `
+                    <div class="kpi-card card-sensor ${sensor.statusSensor != 'Operante' ? 'card-sensor-negativo' : ''}">
+                        <div class="kpi-info">
+                            <span class="kpi-title">
+                                Escolha o sensor
+                            </span>
+                            <h2 class="kpi-value">
+                                Sensor ${sensor.idSensor}
+                            </h2>
+                            <span class="kpi-change ${sensor.statusSensor == 'Operante' ? 'positivo' : 'negativo'}">
+                                Sensor ${sensor.statusSensor.toLowerCase()}
+                            </span>
+                        </div>
+                    </div>
+                    `;
+
+                });
+            });
+
+    }
+
+    function trocarSensor(idSensor) {
+
+        sensorSelecionado = idSensor;
+
+        buscarTemperatura();
+        buscarUmidade();
+
+    }
+
+    var b_usuario = sessionStorage.NOME_USUARIO;
+    document.getElementById("b_usuario").innerHTML = b_usuario;
+
     // CHAMADAS DOS ELEMENTOS PRESENTES NO CORPO DO HTML
     const temperatura2 = document.getElementById("temperatura2");
     const umidade2 = document.getElementById("umidade2");
 
-    const div_sensores = document.getElementById("div_sensores");
-    const div_perfil = document.getElementById("div_perfil");
-
-    const button_inicial = document.getElementById("sensor_temp2");
-
-    // CONFIGURAÇÕES INICIAIS
-    div_perfil.style.display = "none";
-    umidade2.style.display = "none";
-
-    button_inicial.focus();
-
     // EXIBIR PÁGINA PRINCIPAL
     function mostrar_visao_geral() {
-        window.location.href='./dashboard.html';
+        window.location.href = './dashboard.html';
     }
 
     // EXIBIR PÁGINA DE SENSORES
     function mostrar_sensor() {
-        window.location.href='./sensores.html';
+        window.location.href = './sensores.html';
     }
 
     // EXIBIR PÁGINA DE PERFIL
     function mostrar_perfil() {
-        window.location.href='./perfil.html';
+        window.location.href = './perfil.html';
+    }
+
+    // SAIR PARA A HOME
+    function sair() {
+        window.location.href = '../index.html';
     }
 
     // ALTERNAR ENTRE OS GRÁFICOS
     function ocultar_umid2() {
         temperatura2.style.display = "flex";
         umidade2.style.display = "none";
+
+        sensor_temp2.classList.add("ativo");
+        sensor_umid2.classList.remove("ativo");
     }
 
     function ocultar_temp2() {
-        umidade2.style.display = "flex";
         temperatura2.style.display = "none";
+        umidade2.style.display = "flex";
+
+        sensor_umid2.classList.add("ativo");
+        sensor_temp2.classList.remove("ativo");
     }
 
     // VARIÁVEIS QUE PUXAM O ID DO HTML PARA SEREM REFERENCIADOS NO JS
@@ -250,28 +219,6 @@
         }
     });
 
-    // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 3
-    setInterval(() => {
-        const novoValor = Number((Math.random() * (6 - (-6)) + (-6)).toFixed());
-
-        grafico3.data.datasets[0].data.push(novoValor);
-
-        // SHIFT DO GRÁFICO
-        if (grafico3.data.datasets[0].data.length > 10) {
-            grafico3.data.datasets[0].data.shift();
-        }
-        // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
-        if (novoValor > 4) {
-            grafico3.data.datasets[0].borderColor = '#ff4d4f';
-            grafico3.data.datasets[0].pointBorderColor = '#ff4d4f';
-        } else {
-            grafico3.data.datasets[0].borderColor = '#4facfe';
-            grafico3.data.datasets[0].pointBorderColor = '#4facfe';
-        }
-
-        grafico3.update();
-
-    }, 1100);
 
     // GRAFICO 4 - UMIDADE
     const grafico4 = new Chart(ctx4, {
@@ -312,32 +259,128 @@
         }
     });
 
-    // CONFIGURAÇÃO DE ATUALIZAÇÃO DO GRAFICO 4
-    setInterval(() => {
-        const novoValor4 = Number((Math.random() * (90 - 65) + 65).toFixed());
 
-        grafico4.data.datasets[1].data.push(novoValor4);
+    function buscarTemperatura() {
+        fetch("/medidas/temperatura/1")
+            .then(resposta => resposta.json())
+            .then(dados => {
 
-        // SHIFT DO GRÁFICO
-        if (grafico4.data.datasets[1].data.length > 10) {
-            grafico4.data.datasets[1].data.shift();
-        }
-        // VARIAÇÃO QUE ALTERA A COR DA LINHA CASO TENHA ULTRAPASSADO O MÁXIMO
-        if (novoValor4 < 70 || novoValor4 > 85) {
-            grafico4.data.datasets[1].backgroundColor = '#ff4d4f';
-        } else {
-            grafico4.data.datasets[1].backgroundColor = '#4facfe';
-        }
+                dados.reverse();
 
-        grafico4.update();
-    }, 1100);
+                grafico3.data.labels = [];
+                grafico3.data.datasets[0].data = [];
+                grafico3.data.datasets[0].pointBackgroundColor = [];
+                grafico3.data.datasets[0].pointBorderColor = [];
 
-    function ativarButtons() {
-        let btn_graf = document.getElementById("btn-ativo");
-        let btn_menu = document.getElementById("sensor_temp");
+                dados.forEach(registro => {
 
-        btn_graf.focus;
-        btn_menu.focus;
+                    let horario = new Date(registro.dtCaptura)
+                        .toLocaleString('pt-BR', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })
+                        .replace(',', ' -');
+
+                    let temperatura = Number(registro.temperatura);
+
+                    grafico3.data.labels.push(horario);
+
+                    grafico3.data.datasets[0].data.push(temperatura);
+
+                    if (temperatura > 4 || temperatura < -4) {
+
+                        grafico3.data.datasets[0].pointBackgroundColor.push("#ff4d4f");
+                        grafico3.data.datasets[0].pointBorderColor.push("#ff4d4f");
+
+                    } else {
+
+                        grafico3.data.datasets[0].pointBackgroundColor.push("#4facfe");
+                        grafico3.data.datasets[0].pointBorderColor.push("#4facfe");
+
+                    }
+
+                });
+
+                // Linhas de referência
+                grafico3.data.datasets[1].data = Array(dados.length).fill(4);
+                grafico3.data.datasets[2].data = Array(dados.length).fill(-4);
+
+
+                grafico3.update();
+            })
+            .catch(erro => {
+                console.error("Erro ao buscar temperatura:", erro);
+            });
     }
+
+    function buscarUmidade() {
+        fetch("/medidas/umidade/1")
+            .then(resposta => resposta.json())
+            .then(dados => {
+
+                dados.reverse();
+
+                grafico4.data.labels = [];
+                grafico4.data.datasets[1].data = [];
+                grafico4.data.datasets[1].backgroundColor = [];
+
+                dados.forEach(registro => {
+
+                    let horario = new Date(registro.dtCaptura)
+                        .toLocaleString('pt-BR', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })
+                        .replace(',', ' -');
+
+                    let umidade = Number(registro.umidade);
+
+                    grafico4.data.labels.push(horario);
+
+                    grafico4.data.datasets[1].data.push(umidade);
+
+                    if (umidade > 85 || umidade < 70) {
+
+                        grafico4.data.datasets[1].backgroundColor.push("#ff4d4f");
+
+                    } else {
+
+                        grafico4.data.datasets[1].backgroundColor.push("#4facfe");
+
+                    }
+
+                });
+
+                // Barras de referência
+                grafico4.data.datasets[0].data = Array(dados.length).fill(85);
+                grafico4.data.datasets[2].data = Array(dados.length).fill(70);
+
+                grafico4.update();
+            })
+            .catch(erro => {
+                console.error("Erro ao buscar umidade:", erro);
+            });
+    }
+
+
+    window.onload = () => {
+
+        buscarSensores();
+        buscarTemperatura();
+        buscarUmidade();
+        ocultar_umid2();
+
+        setInterval(() => {
+            buscarSensores();
+            buscarTemperatura();
+            buscarUmidade();
+        }, 5000);
+
+    }
+
 
 </script>

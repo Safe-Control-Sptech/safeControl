@@ -533,7 +533,33 @@ select:focus {
 }
 
 ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
     list-style-type: none;
+}
+
+.a-footer {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+a-footer:hover {
+    text-decoration: underline;
+}
+
+.tipos-Contato ul,
+.tipos-Redes ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tipos-Contato ul,
+.tipos-Redes ul {
+    padding-left: 0;
 }
 
 .faq {
@@ -605,3 +631,4 @@ ul {
     display: flex;
     gap: 8px;
 }
+

@@ -19,9 +19,10 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img class="img-logo" src="./assets/logo/Logo_SafeControl_Horizontal.png" alt="Imagem da Logo da Safe Control">
+            <img class="img-logo" src="./assets/logo/Logo_SafeControl_Horizontal.png"
+                alt="Imagem da Logo da Safe Control">
         </div>
-        
+
         <button class="voltar"><a class="link-voltar" href="index.html">Voltar</a></button>
     </div>
 
@@ -36,7 +37,7 @@
             <div class="card card-login">
                 <div class="formulario">
                     <h2>Login</h2>
-                    
+
                     <div class="campo">
                         <h3>E-mail:</h3>
                         <input id="email_input" type="text" placeholder="Login">
@@ -47,8 +48,9 @@
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
 
-                    <p>Não tem uma conta? Inscreva-se agora: <a class="link-entrar" href="./cadastro.html">Clique aqui!</a></p>
-                    
+                    <p>Não tem uma conta? Inscreva-se agora: <a class="link-entrar" href="./cadastro.html">Clique
+                            aqui!</a></p>
+
                     <button class="botao" onclick="entrar()"><span class="texto-botao">Entrar</span></button>
                 </div>
 
@@ -61,6 +63,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
@@ -99,24 +102,28 @@
                 console.log(resposta);
 
                 resposta.json().then(json => {
+
                     console.log(json);
-                    console.log(JSON.stringify(json));
+
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-                    
-                    if(emailVar == 'suporte@safe.com' && senhaVar == 'suporten3'){
-                        setTimeout(function () {
-                        window.location = "dashboard/suporte/pagina_suporte.html";    
-                    }, 1000);
-                    }
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.EMPRESA_USUARIO = json.empresaId;
 
-                    else{
+                    if (emailVar == 'suporte@safe.com' && senhaVar == 'suporten3') {
+
+                        setTimeout(function () {
+                            window.location = "dashboard/suporte/pagina_suporte.html";
+                        }, 1000);
+
+                    } else {
+
                         setTimeout(function () {
                             window.location = "./dashboard/dashboard.html";
                         }, 1000);
+
                     }
+
                 });
 
             } else {

@@ -22,7 +22,26 @@ function cadastrar(nome, cpf, email, senha, telefone, fkEmpresa) {
     return database.executar(instrucaoSql);
 }
 
+function buscarPerfil(idUsuario) {
+
+    var instrucaoSql = `
+        SELECT
+            u.nome,
+            u.email,
+            u.cpf,
+            u.telefone,
+            e.nomeFantasia
+        FROM usuario u
+        JOIN empresa e
+            ON e.idEmpresa = u.fkEmpresa
+        WHERE u.idUsuario = ${idUsuario};
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarPerfil
 };

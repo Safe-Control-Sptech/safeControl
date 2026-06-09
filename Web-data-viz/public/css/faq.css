@@ -274,3 +274,30 @@ body {
         padding: 20px;
     }
 }
+
+button {
+    width: fit-content;
+    padding: 16px 24px 16px 24px;
+
+    border-radius: 80px;
+
+    background: #1898CF;
+    color: #ffffff;
+
+    border: 0px #0D4D69;
+
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Inter;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4ac2f5;
+    transform: scale(1.05);
+}

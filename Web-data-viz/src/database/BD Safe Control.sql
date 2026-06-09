@@ -46,19 +46,20 @@ CREATE TABLE captura(
 idCaptura INT AUTO_INCREMENT,
 temperatura DECIMAL(5,2),
 umidade DECIMAL(5,2),
+dtCaptura DATETIME DEFAULT CURRENT_TIMESTAMP,
 fkSensor INT NOT NULL,
 fkUnidadeTemp INT,
 fkUnidadeUmi INT,
-PRIMARY KEY  (idCaptura, fkSensor),
+PRIMARY KEY (idCaptura, fkSensor),
 CONSTRAINT fkCapturaSensor
-	FOREIGN KEY (fkSensor) 
-		REFERENCES sensor(idSensor),
-CONSTRAINT fkCapturaUnidadeTemp 
-	FOREIGN KEY (fkUnidadeTemp)
-		REFERENCES unidadeMedida(idUnidade),
+    FOREIGN KEY (fkSensor)
+    REFERENCES sensor(idSensor),
+CONSTRAINT fkCapturaUnidadeTemp
+    FOREIGN KEY (fkUnidadeTemp)
+    REFERENCES unidadeMedida(idUnidade),
 CONSTRAINT fkCapturaUnidadeUmi
-	FOREIGN KEY (fkUnidadeUmi)
-		REFERENCES unidadeMedida(idUnidade)
+    FOREIGN KEY (fkUnidadeUmi)
+    REFERENCES unidadeMedida(idUnidade)
 );
 
 CREATE TABLE endereco(
@@ -120,25 +121,34 @@ INSERT INTO statusSensor (descricao) VALUES
 
 INSERT INTO sensor (codigoRastreio, fkStatus) VALUES
 ('SEN001', 1),
-('SEN002', 2),
-('SEN003', 3),
-('SEN004', 1),
-('SEN005', 2),
-('SEN006', 2),
-('SEN007', 1);
+('SEN002', 2);
 
 INSERT INTO unidadeMedida (idUnidade, simbolo) VALUES
 (1, '°C'),
 (2, '%');
 
-INSERT INTO captura (idCaptura, temperatura, fkUnidadeTemp, umidade, fkUnidadeUmi, fkSensor) VALUES
-(1, null, 1, null, 2, 1),
-(2, -16.50, 1, 55.00, 2, 2),
-(3, 0.00, 1, 65.00, 2, 3),
-(4, 4.50, 1, 70.00, 2, 4),
-(5, null, 1, null, 2, 5),
-(6, -18.00, 1, 50.00, 2, 6),
-(7, 2.00, 1, 45.00, 2, 7);
+INSERT INTO captura (temperatura,umidade,dtCaptura,fkSensor,fkUnidadeTemp,fkUnidadeUmi) VALUES
+(2.1,88.5,'2026-06-08 18:00:00',1,1,2),
+(1.8,90.2,'2026-06-08 18:05:00',1,1,2),
+(2.5,87.9,'2026-06-08 18:10:00',1,1,2),
+(3.0,91.4,'2026-06-08 18:15:00',1,1,2),
+(1.6,89.1,'2026-06-08 18:20:00',1,1,2),
+(2.8,92.0,'2026-06-08 18:25:00',1,1,2),
+(3.3,86.7,'2026-06-08 18:30:00',1,1,2),
+(2.0,90.8,'2026-06-08 18:35:00',1,1,2),
+(1.4,93.2,'2026-06-08 18:40:00',1,1,2),
+(2.7,88.9,'2026-06-08 18:45:00',1,1,2),
+(3.1,91.6,'2026-06-08 18:50:00',1,1,2),
+(2.3,89.7,'2026-06-08 18:55:00',1,1,2),
+(1.9,92.4,'2026-06-08 19:00:00',1,1,2),
+(2.6,87.3,'2026-06-08 19:05:00',1,1,2),
+(3.4,90.5,'2026-06-08 19:10:00',1,1,2),
+(2.2,88.1,'2026-06-08 19:15:00',1,1,2),
+(1.7,93.0,'2026-06-08 19:20:00',1,1,2),
+(2.9,89.4,'2026-06-08 19:25:00',1,1,2),
+(3.2,91.1,'2026-06-08 19:30:00',1,1,2),
+(2.4,87.8,'2026-06-08 19:35:00',1,1,2),
+(null, null, '2026-06-08 19:35:00', 2, 1, 2);
 
 
 INSERT INTO endereco (idEndereco, cep, endereco, numero, complemento, cidade, UF, fkEmpresa) VALUES
@@ -152,62 +162,49 @@ INSERT INTO endereco (idEndereco, cep, endereco, numero, complemento, cidade, UF
 
 INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida, dtChegada, fkEmpresa, fkSensor) VALUES
 (1, 'AAA1A11', 'Motorista 1', 'Santos', 'SP', '2026-04-17 08:00:00', '2026-04-17 10:00:00', 1, 1),
-(2, 'BBB2B22', 'Motorista 2', 'SP', 'Campinas', '2026-04-17 09:00:00', '2026-04-17 11:00:00', 2, 2),
-(3, 'CCC3C33', 'Motorista 3', 'Campinas', 'Santos', '2026-04-17 10:00:00', '2026-04-17 12:00:00', 3, 3),
-(4, 'DDD4D44', 'Motorista 4', 'RJ', 'SP', '2026-04-17 11:00:00', '2026-04-17 15:00:00', 4, 4),
-(5, 'EEE5E55', 'Motorista 5', 'MG', 'SP', '2026-04-17 12:00:00', '2026-04-17 16:00:00', 5, 5),
-(6, 'FFF6F66', 'Motorista 6', 'PR', 'SP', '2026-04-17 13:00:00', '2026-04-17 17:00:00', 6, 6),
-(7, 'GGG7G77', 'Motorista 7', 'SC', 'SP', '2026-04-17 14:00:00', '2026-04-17 18:00:00', 7, 7);
-
-INSERT INTO transporte (idTransporte, placa, motorista, origem, destino, dtSaida, dtChegada, fkEmpresa, fkSensor) VALUES
-(8,'HHH8H88', 'Motorista 8', 'Santana de Parnaíba' , 'MG' , '2026-04-18 13:00:00' , '2026-04-18 17:00:00' , 2,5),
-(9,'III9I99', 'Motorista 9', 'Curitiba' , 'Porto Alegre' , '2026-04-16 09:00:00' , '2026-04-17 12:00:00' , 2,1);
+(2, 'BBB2B22', 'Motorista 2', 'SP', 'Campinas', '2026-04-17 09:00:00', '2026-04-17 11:00:00', 2, 2);
 
 
--- mediana da umidade
-SELECT 
-    c.fkSensor AS idSensor,
+CREATE VIEW vw_dados_sensor AS
+SELECT
+    e.idEmpresa,
+    e.razaoSocial,
+
+    t.idTransporte,
+    t.placa,
+    t.origem,
+    t.destino,
+
+    s.idSensor,
     s.codigoRastreio,
-    MAX(c.umidade) AS maior_umidade
-FROM captura c
-JOIN sensor s ON c.fkSensor = s.idSensor
-WHERE c.umidade IS NOT NULL
-GROUP BY c.fkSensor, s.codigoRastreio
-ORDER BY maior_umidade DESC;
 
+    st.idStatus,
+    st.descricao AS statusSensor,
 
-/*SELECT t.fkEmpresa , t.placa, t.origem,
- t.destino, e.nomeFantasia as empresa
- FROM transporte as t JOIN empresa as e
-	ON t.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1;
+    c.idCaptura,
+    c.temperatura,
+    c.umidade,
+    c.dtCaptura
 
-SELECT e.nomeFantasia as empresa ,
- u.nome as funcionario, c.nome as cargo
-	FROM usuario as u JOIN empresa as e ON u.fkEmpresa = e.idEmpresa
-		JOIN cargo as c ON u.fkCargo = c.idCargo;
-        
-SELECT t.idTransporte AS caminhao, 
-	t.placa,
-    e.nomeFantasia AS empresa,
-    IFNULL(c.temperatura, 'Sem registro') AS temperatura,
-    ut.simbolo AS unidade_temperatura, 
-    IFNULL(c.umidade, 'Sem registro') AS umidade,
-    uu.simbolo AS unidade_umidade,
-    CASE ss.numeroStatus
-        WHEN '0' THEN 'Inoperante'
-        WHEN '1' THEN 'Operando'
-        ELSE 'Manutenção'
-    END AS status
-FROM transporte t 
-JOIN empresa e ON t.fkEmpresa = e.idEmpresa
-JOIN sensor s ON t.fkSensor = s.idSensor
-JOIN statusSensor ss ON s.fkStatus = ss.idStatus
-JOIN captura c ON c.fkSensor = s.idSensor
-JOIN unidadeMedida ut ON c.fkUnidadeTemp = ut.idUnidade
-JOIN unidadeMedida uu ON c.fkUnidadeUmi = uu.idUnidade
-WHERE e.idEmpresa=2;*/
+FROM empresa e
+JOIN transporte t
+    ON t.fkEmpresa = e.idEmpresa
+JOIN sensor s
+    ON s.idSensor = t.fkSensor
+JOIN statusSensor st
+    ON st.idStatus = s.fkStatus
+JOIN captura c
+    ON c.fkSensor = s.idSensor;
 
 
 
-	
+CREATE VIEW vw_medias_sensor AS
+SELECT
+    s.idSensor,
+    AVG(c.temperatura) AS mediaTemperatura,
+    AVG(c.umidade) AS mediaUmidade
+FROM sensor s
+JOIN captura c
+    ON c.fkSensor = s.idSensor
+GROUP BY s.idSensor;
     

@@ -23,17 +23,16 @@ function autenticar(req, res) {
                         // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
                         //     .then((resultadoAquarios) => {
                         //         if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha
-                                        //aquarios: resultadoAquarios
-                                    });
-                                // } else {
-                                //     res.status(204).json({ aquarios: [] });
-                                // }
-                           // })
+                        res.json({
+                            idUsuario: resultadoAutenticar[0].idUsuario,
+                            empresaId: resultadoAutenticar[0].empresaId,
+                            email: resultadoAutenticar[0].email,
+                            nome: resultadoAutenticar[0].nome
+                        });
+                        // } else {
+                        //     res.status(204).json({ aquarios: [] });
+                        // }
+                        // })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -94,7 +93,23 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarPerfil(req, res) {
+
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.buscarPerfil(idUsuario)
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarPerfil
 }

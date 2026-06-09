@@ -31,7 +31,7 @@
 
         <button class="button-menu" onclick="mostrar_sensor()">Sensores</button>
 
-        <button class="button-menu" onclick="mostrar_perfil()">Perfil</button>
+        <button class="button-menu ativo" onclick="mostrar_perfil()">Perfil</button>
 
         <button class="btn-login" onclick="sair()"> Sair </button>
     </div>
@@ -48,40 +48,34 @@
                 <!-- TOPO COM FOTO -->
                 <div class="card-header">
                     <div class="foto-perfil">
-                        <img src="./imagens/icone_perfil.png" alt="Foto do cliente">
+                        <img src="../assets/imagens/icone_perfil.png"> alt="Foto do cliente">
                     </div>
                 </div>
 
                 <!-- DADOS -->
                 <div class="campo">
                     <label>Nome Completo</label>
-                    <input type="text" value="Carlos Eduardo Martins">
+                    <input id="input_nome" type="text" readonly>
                 </div>
 
                 <div class="campo">
                     <label>Email</label>
-                    <input type="email" value="carlos.martins@safecontrol.com">
+                    <input id="input_email" type="email" readonly>
                 </div>
 
                 <div class="campo">
                     <label>CPF</label>
-                    <input type="text" value="527.894.163-08">
+                    <input id="input_cpf" type="text" readonly>
                 </div>
 
                 <div class="campo">
                     <label>Telefone</label>
-                    <input type="text" value="(11) 98765-4321">
+                    <input id="input_telefone" type="text" readonly>
                 </div>
 
                 <div class="campo">
                     <label>Empresa</label>
-                    <input type="text" value="SafeControl LTDA">
-                </div>
-
-                <!-- BOTÕES -->
-                <div class="card-footer">
-                    <button class="btn-editar" onclick="habilitarEdicao()">Alterar Dados</button>
-                    <button class="btn-salvar" onclick="salvarEdicao()">Salvar Alterações</button>
+                    <input id="input_empresa" type="text" readonly>
                 </div>
             </div>
         </div>
@@ -91,9 +85,47 @@
 </html>
 
 <script>
+    var b_usuario = sessionStorage.NOME_USUARIO;
+
+    function formatarCpf(cpf) {
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    function formatarTelefone(telefone) {
+        return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    }
+
+    function buscarPerfil() {
+
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/usuarios/perfil/${idUsuario}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+
+                input_nome.value = dados[0].nome;
+                input_email.value = dados[0].email;
+                input_cpf.value = formatarCpf(dados[0].cpf);
+                input_telefone.value = formatarTelefone(dados[0].telefone);
+                input_empresa.value = dados[0].nomeFantasia;
+
+            });
+
+    }
+
+    window.onload = () => {
+        buscarPerfil();
+        document.getElementById("b_usuario").innerHTML = b_usuario;
+    }
+
     // EXIBIR PÁGINA PRINCIPAL
     function mostrar_visao_geral() {
         window.location.href = './dashboard.html';
+    }
+
+    // SAIR PARA A HOME
+    function sair() {
+        window.location.href = '../index.html';
     }
 
     // EXIBIR PÁGINA DE SENSORES
